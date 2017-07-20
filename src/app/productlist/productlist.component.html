@@ -1,0 +1,21 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Designation</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th> Edit</th>
+      <th> Remove</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let product of malist; let i=index">
+    <tr>
+      <td><code>{{product._id}}</code></td>
+      <td>{{product.designation}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.category}}</td>
+      <td><button class="btn-primary" (click)="edit(i)"> Edit </button></td>
+      <td><button class="btn-danger"> Remove </button></td>
+    </tr>
+  </tbody>
+</table>
