@@ -7,12 +7,18 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductService } from './product.service';
+import { ProductformComponent } from './productform/productform.component';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    ProductformComponent,
+    FileSelectDirective,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -22,4 +28,6 @@ import { ProductService } from './product.service';
   providers: [ProductService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

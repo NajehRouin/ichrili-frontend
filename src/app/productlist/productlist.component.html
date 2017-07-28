@@ -1,6 +1,7 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
+      <th>Code</th>
       <th>Designation</th>
       <th>Price</th>
       <th>Category</th>
@@ -8,14 +9,17 @@
       <th> Remove</th>
     </tr>
   </thead>
-  <tbody *ngFor="let product of malist; let i=index">
+  <tbody *ngFor="let produit of malist ;let i=index;">
     <tr>
-      <td><code>{{product._id}}</code></td>
-      <td>{{product.designation}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.category}}</td>
+      <td><code>{{produit._id}}</code></td>
+      <td>{{produit.designation}}</td>
+      <td>{{produit.price}}</td>
+      <td>{{produit.category}}</td>
       <td><button class="btn-primary" (click)="edit(i)"> Edit </button></td>
-      <td><button class="btn-danger"> Remove </button></td>
+      <td><button class="btn-danger" (click)="delete(i)"> Remove </button></td>
     </tr>
   </tbody>
 </table>
+
+<hr>
+<app-productform [currentProduct]='produit'></app-productform>
