@@ -1,18 +1,18 @@
 <form role="form" #form="ngForm">
   <legend>Product Details</legend>
-  <div class="form-group" >
+  <div class="form-group">
     <label for="">Designation:</label>
-    <input type="text" class="form-control" id="designation" name="designation" [(ngModel)]="currentProduct.designation" placeholder="designation">
+    <input type="text" class="form-control" id="designation" 
+           name="designation" [(ngModel)]="currentProduct.designation" 
+           placeholder="designation"
+           (input)="onChangeDesignation()">
+
     <label for="">Price:</label>
-    <input type="text" class="form-control" id="price"  name="price" [(ngModel)]="currentProduct.price" placeholder="price">
+    <input type="text" class="form-control" id="price" name="price" [(ngModel)]="currentProduct.price" placeholder="price">
     <label for="">Category:</label>
-    <input type="text" class="form-control" id="category"  name="category" [(ngModel)]="currentProduct.category" placeholder="category">
+    <input type="text" class="form-control" id="category" name="category" [(ngModel)]="currentProduct.category" placeholder="category">
   </div>
 
-  <button type="submit" class="btn btn-primary" (click)="updateCurrentProduct(currentProduct)" >Save</button>
+  <button type="submit" class="btn btn-primary" (click)="addOrEdit(context,currentProduct)">{{Btn_SaveAdd_label}}</button>
+
 </form>
-
-
-
-
-

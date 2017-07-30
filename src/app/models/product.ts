@@ -1,5 +1,7 @@
 export class Product {
-    constructor(private designation:String,price:Number,category:String){
+    constructor(private _id: String, private designation: String,
+        private price: Number, private category: String,
+        private photo_url: String) {
 
     }
 }

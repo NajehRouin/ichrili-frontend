@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { ProductlistComponent } from '../productlist/productlist.component';
 import { ProductService } from '../product.service';
+import { Product } from '../models/product';
+import 'rxjs';
 
 @Component({
   selector: 'app-productform',
@@ -10,20 +12,31 @@ import { ProductService } from '../product.service';
 })
 export class ProductformComponent implements OnInit {
   private context: String = 'ADD';
+  private errorMessage: String = '';
+  private Btn_SaveAdd_label = 'Add Product';
 
-  errorMessage: String = '';
-
-  @Input() private currentProduct = { designation: '', price: 0, category: '' };
+  @Input() private currentProduct: any;
 
   constructor(private _productService: ProductService) { }
 
   ngOnInit() {
+    this.currentProduct = { _id: '', designation: '', price: 0, category: '' };
   }
 
-  addOrEdit(product) {
-    switch (this.context) {
+  onChangeDesignation() {
+    if (this.currentProduct._id === '') {
+      this.context = 'ADD';
+       this.Btn_SaveAdd_label = 'Add Product';
+    } else {
+      this.context = 'UPDATE';
+       this.Btn_SaveAdd_label = 'Update Product';
+    }
+  }
+
+  addOrEdit(context, product) {
+    switch (context) {
       case 'ADD':
-      this.addCurrentProduct(product)
+        this.addCurrentProduct(product)
 
         break;
       case 'UPDATE':
@@ -44,7 +57,7 @@ export class ProductformComponent implements OnInit {
       error => this.errorMessage = <any>error
       );
 
-    this.currentProduct = { designation: '', price: 0, category: '' };
+    this.currentProduct = { _id: '', designation: '', price: 0, category: '' };
   }
 
   public addCurrentProduct(theProduct) {
@@ -58,7 +71,7 @@ export class ProductformComponent implements OnInit {
       result => console.log(result),
       error => this.errorMessage = <any>error
       );
-    this.currentProduct = { designation: '', price: 0, category: '' };
+    this.currentProduct = { _id: '', designation: '', price: 0, category: '' };
   }
 
 }

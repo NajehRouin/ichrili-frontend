@@ -1,25 +1,51 @@
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Designation</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th> Edit</th>
-      <th> Remove</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let produit of malist ;let i=index;">
-    <tr>
-      <td><code>{{produit._id}}</code></td>
-      <td>{{produit.designation}}</td>
-      <td>{{produit.price}}</td>
-      <td>{{produit.category}}</td>
-      <td><button class="btn-primary" (click)="edit(i)"> Edit </button></td>
-      <td><button class="btn-danger" (click)="delete(i)"> Remove </button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="row" *ngIf="showform">
+  <div class="col-md-4">
+    <app-productform [currentProduct]='produit'></app-productform>
+  </div>
+</div>
 
-<hr>
-<app-productform [currentProduct]='produit'></app-productform>
+<div class="row">
+  <div style="padding:30px !important">
+    <div class="col-md-4">
+      <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search">
+    </div>
+  </div>
+</div>
+<div class="row" style="padding:20px !important;">
+  <button class="btn-primary" (click)="displayForm()"> Show Detail form </button>
+  <div class="col-md-8">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Code</th>
+          <th>Designation</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Edit</th>
+          <th>Remove</th>
+          <th>Upload</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let produit of malist 
+      | searchProductPipe : queryString 
+      | paginate: { itemsPerPage: 7, currentPage: p , totalItems: this.total };
+      let i=index">
+        <tr>
+           <td class="row">{{ (p- 1) * 7 + i +1 }}</td>
+          <td><code>{{produit._id}}</code></td>
+          <td>{{produit.designation}}</td>
+          <td>{{produit.price | currency:'TND':false}}</td>
+          <td>{{produit.category}}</td>
+          <td><button class="btn-primary" (click)="edit(produit._id)"><span class="glyphicon glyphicon-pencil"></span> </button></td>
+          <td><button class="btn-danger" (click)="delete(produit._id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+          <td>
+            <img [src]="produit.photo_url || 'http://localhost:3000/upload/default_product.png'" style="border:1 solid gray;float:left;margin:5px;padding:2px;width:120px;display:block;float:left">
+            <app-file-upload [currentProduct]='produit'></app-file-upload>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+     <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+  </div>
+</div>

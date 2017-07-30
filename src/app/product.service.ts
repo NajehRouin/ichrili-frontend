@@ -22,11 +22,11 @@ export class ProductService {
     return this.http.put(url, param, this.options);
   }
 
-  public deleteProduct(_id){
-    return this.http.delete('http://localhost:3000/products/'+_id,this.options);
+  public deleteProduct(_id) {
+    return this.http.delete('http://localhost:3000/products/' + _id, this.options);
   }
 
-  public addProduct(product){
-    return this.http.post('http://localhost:3000/products',product,this.options);
+  public addProduct(product) {
+    return this.http.post('http://localhost:3000/products', product, this.options);
   }
 }
