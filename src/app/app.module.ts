@@ -14,7 +14,17 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchProductPipe } from './search-product.pipe';
 import { JumbutronComponent } from './jumbutron/jumbutron.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { PromotionComponent } from './promotion/promotion.component';
+import { HomeComponent } from './home/home.component';
 
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'promotion', component: PromotionComponent },
+  { path: 'catalogue', component: CatalogueComponent }
+];
 
 @NgModule({
   declarations: [
@@ -25,8 +35,9 @@ import { JumbutronComponent } from './jumbutron/jumbutron.component';
     FileUploadComponent,
     SearchProductPipe,
     JumbutronComponent,
-
-
+    CatalogueComponent,
+    PromotionComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -34,7 +45,8 @@ import { JumbutronComponent } from './jumbutron/jumbutron.component';
     FormsModule,
     HttpModule,
     NgUploaderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

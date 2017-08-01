@@ -8,7 +8,7 @@ export class SearchProductPipe implements PipeTransform {
     if (input) {
       input = input.toLowerCase();
       return products.filter(function (product: any) {
-        return product.designation.toLowerCase().indexOf(input) > -1;
+        return product.designation.toLowerCase().indexOf(input) > -1 || product.category.toLowerCase().indexOf(input) > -1 ;
       });
     }
     return products;

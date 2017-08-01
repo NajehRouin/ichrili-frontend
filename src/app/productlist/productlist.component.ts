@@ -21,9 +21,11 @@ export class ProductlistComponent implements OnInit {
   loading = false;
   p: number = 1;
   total: number = 0;
+  currentSelection: number = 0;
   searchString: string = '';
 
   constructor(private _productService: ProductService) {
+
   }
 
   ngOnInit() {
@@ -35,9 +37,10 @@ export class ProductlistComponent implements OnInit {
           product.photo_url = image_url + product.photo_url;
         }
       })
-      console.log(data);
+      console.log(data); 
     });
-    this.total = this.malist.length;
+    //this.total = this.malist.length;
+
   }
 
   edit(id) {
