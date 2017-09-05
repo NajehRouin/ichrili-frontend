@@ -1,0 +1,27 @@
+<form role="form">
+  <legend>Register Your Self</legend>
+
+  <div class="form-group">
+      <label for="">User Name</label>
+      <input type="text" class="form-control" id="user_name" placeholder="Type your user name" name="user_name" [(ngModel)]="user.user_name">
+     
+      <label for="">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Type your password" name="password" [(ngModel)]="user.password">
+     
+      <label for="">Gender</label>
+      <input type="text" class="form-control" id="gender" placeholder="your gender" name="gender" [(ngModel)]="user.gender">
+
+      <label for="">Region</label>
+      <input type="text" class="form-control" id="region" placeholder="Type your Region" name="region" [(ngModel)]="user.region">
+  </div>
+</form>
+<button class="btn-primary" (click)="addUser(user)"> Register </button>
+
+<!--
+<code>
+  {{user.user_name}}<br>
+  {{user.password}}<br>
+  {{user.gender}}<br>
+  {{user.region}}
+</code>
+-->

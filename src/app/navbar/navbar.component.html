@@ -1,9 +1,8 @@
-
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
   <a class="navbar-brand" href="#">Grocery List</a>
   <ul class="nav navbar-nav">
     <li class="active">
-      <a  [routerLink]="['/']">Home</a>
+      <a [routerLink]="['/home']">Home</a>
     </li>
     <li>
       <a [routerLink]="['/promotion']">Promotions</a>
@@ -11,5 +10,20 @@
     <li>
       <a [routerLink]="['/catalogue']">Catalogue</a>
     </li>
+    <li>
+      <a [routerLink]="['/profile']">profile</a>
+    </li>
+    <li>
+      <a [routerLink]="['/users']">users</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">users_logout <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><button class="btn btn-primary" id="btn" (click)="logout()"> Logout </button></li>
+      </ul>
+    </li>
   </ul>
 </nav>
+

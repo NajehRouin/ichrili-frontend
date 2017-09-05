@@ -1,0 +1,31 @@
+<div class="col-md-3">
+  <app-profile></app-profile>
+</div>
+<div class="col-md-6">
+  <h1> Liste Contactes</h1>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <!-- <th>#</th>-->
+        <th>Send to</th>
+        <th> User Name</th>
+        <th> Gender </th>
+        <th> Region </th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of _users; let i=index">
+      <tr>
+        <!-- <td><code>{{user._id}}</code></td>-->
+        <td> <button class="btn btn-success" (click)="sendInvitation(currentUser._id,user._id)"> Send To</button></td>
+        <td>{{user.user_name | uppercase}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.region}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="col-md-3">
+  <app-sent-invitation></app-sent-invitation>
+</div>

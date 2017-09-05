@@ -128,6 +128,30 @@
   dependencies:
     tsickle "^0.21.0"
 
+"@ngrx/core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/core/-/core-1.2.0.tgz#882b46abafa2e0e6d887cb71a1b2c2fa3e6d0dc6"
+
+"@ngrx/devtools@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/devtools/-/devtools-1.4.0.tgz#89b6f23f4133953085426db00af341d98d676837"
+
+"@ngrx/effects@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-4.0.2.tgz#31d6d14b1ca2380b5be061e91d9a0edb0f0f27c7"
+
+"@ngrx/router-store@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-4.0.2.tgz#787c9fe3af60f5f9318ed80d3f8c8ac2601b94da"
+
+"@ngrx/store-devtools@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-4.0.0.tgz#b79c24773217df7fd9735ad21f9cbf2533c96e04"
+
+"@ngrx/store@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-4.0.2.tgz#bd0388f0444a78b87059738274a3d3b5cc43e402"
+
 "@ngtools/json-schema@1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.0.5.tgz#ad39037c70c88b245ac7267a71777646b6063d77"
@@ -1268,6 +1292,10 @@ deep-extend@~0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
+deep-freeze-strict@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/deep-freeze-strict/-/deep-freeze-strict-1.1.1.tgz#77d0583ca24a69be4bbd9ac2fae415d55523e5b0"
+
 default-require-extensions@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/default-require-extensions/-/default-require-extensions-1.0.0.tgz#f37ea15d3e13ffd9b437d33e1a75b5fb97874cb8"
@@ -1979,6 +2007,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
+gsap@^1.20.2:
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-1.20.2.tgz#c78abd906c32ee21964c1b90f921b5110180c65a"
+
 handle-thing@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -2212,6 +2244,10 @@ img-stats@^0.5.2:
   resolved "https://registry.yarnpkg.com/img-stats/-/img-stats-0.5.2.tgz#c203496c42f2d9eb2e5ab8232fa756bab32c9e2b"
   dependencies:
     xmldom "^0.1.19"
+
+immutable@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -3069,13 +3105,19 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
+ngrx-store-freeze@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/ngrx-store-freeze/-/ngrx-store-freeze-0.1.9.tgz#b20f18f21fd5efc4e1b1e05f6f279674d0f70c81"
+  dependencies:
+    deep-freeze-strict "^1.1.1"
+
 ngx-pagination@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ngx-pagination/-/ngx-pagination-3.0.1.tgz#5a8000e40c0424d9c41c9d6d592562e1547abf24"
 
-ngx-uploader@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/ngx-uploader/-/ngx-uploader-3.3.2.tgz#2e2aeace61d4ad4c34546aaedfab53902b633be5"
+ngx-uploader@^2.2.8:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/ngx-uploader/-/ngx-uploader-2.2.8.tgz#a6063781e89915bf4a217f56bd3b8c375b59fb79"
 
 no-case@^2.2.0:
   version "2.3.1"
@@ -4102,6 +4144,10 @@ require-main-filename@^1.0.1:
 requires-port@1.0.x, requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+reselect@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-3.0.1.tgz#efdaa98ea7451324d092b2b2163a6a1d7a9a2147"
 
 resolve@^1.1.6, resolve@^1.1.7:
   version "1.4.0"
@@ -5236,16 +5282,9 @@ write-file-atomic@^2.0.0:
     imurmurhash "^0.1.4"
     slide "^1.1.5"
 
-ws@1.1.1:
+ws@1.1.1, ws@^1.0.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.1.tgz#082ddb6c641e85d4bb451f03d52f06eabdb1f018"
-  dependencies:
-    options ">=0.0.5"
-    ultron "1.0.x"
-
-ws@^1.0.1:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.4.tgz#57f40d036832e5f5055662a397c4de76ed66bf61"
   dependencies:
     options ">=0.0.5"
     ultron "1.0.x"

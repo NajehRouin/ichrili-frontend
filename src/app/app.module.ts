@@ -18,12 +18,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PromotionComponent } from './promotion/promotion.component';
 import { HomeComponent } from './home/home.component';
+import { UserService } from './user.service';
+import { AuthService } from './users/auth.service';
+import { LoginFormComponent } from './users/login-form/login-form.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { ProfileComponent } from './users/profile/profile.component';
+import { SignupFormComponent } from './users/signup-form/signup-form.component';
+import { UsersModule } from './users/users.module';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'promotion', component: PromotionComponent },
-  { path: 'catalogue', component: CatalogueComponent }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthService] },
+  { path: 'promotion', component: PromotionComponent, canActivate: [AuthService] },
+  { path: 'catalogue', component: CatalogueComponent, canActivate: [AuthService] },
+  { path: 'login', component: LoginFormComponent },
+  { path: 'users', component: UserListComponent, canActivate: [AuthService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthService] },
+  { path: 'signup', component: SignupFormComponent },
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
@@ -46,9 +59,10 @@ const routes: Routes = [
     HttpModule,
     NgUploaderModule,
     NgxPaginationModule,
+    UsersModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ProductService],
+  providers: [ProductService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
