@@ -16,12 +16,12 @@ export class JumbutronComponent implements OnInit {
     this._productService.getAllProducts().subscribe(data => {
       this.malist = data;
       this.malist.map((product) => {
-        console.log('product:', product);
+        //console.log('product:', product);
         if (product.photo_url) {
           product.photo_url = image_url + product.photo_url;
         }
       })
-      console.log(data);
+      //console.log(data);
     });
   }
 

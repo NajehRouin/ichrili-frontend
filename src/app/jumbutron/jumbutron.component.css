@@ -5,5 +5,9 @@
 }
 
 #myCarousel{
-    height: 500px !important;
+    height: 460px !important;
+}
+.mylist{
+    padding-top:30px;
+    margin-top:30px;
 }

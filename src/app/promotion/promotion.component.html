@@ -1,4 +1,4 @@
-<div class="row list-group" *ngFor="let produit of malist;let i=index;">
+<div class="row list-group mylist" *ngFor="let produit of malist;let i=index;">
   <li class="product">
     <button class="thumbnail" (click)="animateProduit()">
       <img [src]="produit.photo_url" alt="produit.designation" style="width:250px !important">
