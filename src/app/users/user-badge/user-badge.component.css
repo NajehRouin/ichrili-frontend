@@ -1,0 +1,12 @@
+.avatar{
+    width:77px;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.avatar_container{
+    margin:5px;
+    padding:3px;
+    display: block;
+    float: left;
+}

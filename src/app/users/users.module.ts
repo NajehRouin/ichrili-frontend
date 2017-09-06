@@ -11,20 +11,37 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { UserBadgeComponent } from './user-badge/user-badge.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { SendingInvitationComponent } from './sending-invitation/sending-invitation.component';
-
+import { SearchUserPipe } from './search-user.pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
-  declarations: [ProfileComponent, RecievedInvitationComponent,
-    SentInvitationComponent, SignupFormComponent,
-    LoginFormComponent, UserBadgeComponent,
-    UserListComponent, SendingInvitationComponent],
-  providers: [AuthService, InvitationService],
-  exports: [ProfileComponent, RecievedInvitationComponent,
-    SentInvitationComponent, SignupFormComponent,
-    LoginFormComponent, UserBadgeComponent,
-    UserListComponent, SendingInvitationComponent]
+  declarations: [ProfileComponent,
+    RecievedInvitationComponent,
+    SentInvitationComponent,
+    SignupFormComponent,
+    LoginFormComponent,
+    UserBadgeComponent,
+    UserListComponent,
+    SendingInvitationComponent,
+    SearchUserPipe],
+  providers: [
+    AuthService,
+    InvitationService
+  ],
+  exports: [
+    ProfileComponent,
+     RecievedInvitationComponent,
+    SentInvitationComponent,
+    SignupFormComponent,
+    LoginFormComponent,
+    UserBadgeComponent,
+    UserListComponent,
+    SendingInvitationComponent,
+    SearchUserPipe
+  ]
 })
 export class UsersModule { }

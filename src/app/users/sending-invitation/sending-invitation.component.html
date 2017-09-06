@@ -1,31 +1,41 @@
-<div class="col-md-3">
-  <app-profile></app-profile>
-</div>
-<div class="col-md-6">
-  <h1> Liste Contactes</h1>
-  <table class="table table-hover table-striped">
-    <thead>
-      <tr>
-        <!-- <th>#</th>-->
-        <th>Send to</th>
-        <th> User Name</th>
-        <th> Gender </th>
-        <th> Region </th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let user of _users; let i=index">
-      <tr>
-        <!-- <td><code>{{user._id}}</code></td>-->
-        <td> <button class="btn btn-success" (click)="sendInvitation(currentUser._id,user._id)"> Send To</button></td>
-        <td>{{user.user_name | uppercase}}</td>
-        <td>{{user.gender}}</td>
-        <td>{{user.region}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="panel panel-primary">
 
-</div>
+  <div class="panel-heading">
+    <div class="row">Get Friends</div>
+    <div class="row">
+      <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search">
+    </div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-condesed table-hover">
+      <thead>
+        <tr>
+          <!-- <th>#</th>-->
+          <th>Avatar</th>
+          <th>User</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of _users 
+      | searchUserPipe : queryString 
+      | paginate: { itemsPerPage: 10, currentPage: p , totalItems: this.total };
+      let i=index">
+        <tr [ngClass]="getColor(i)">
+          <!-- <td><code>{{user._id}}</code></td>-->
+          <td>
+            <div class="avatar_container">
+              <img class="avatar" [src]="getAvatarUrl(user.gender)" /></div>
+          </td>
 
-<div class="col-md-3">
-  <app-sent-invitation></app-sent-invitation>
+          <td class="text-info">
+            <button class="btn btn-success" (click)="sendInvitation(currentUser._id,user._id)"> Send To</button> {{user.user_name
+            | uppercase}}
+            <p>{{user.gender}}</p>
+            <p><i>{{user.region}}</i></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+  </div>
+  <div class="panel-footer">All Grocery List Registred Users</div>
 </div>
