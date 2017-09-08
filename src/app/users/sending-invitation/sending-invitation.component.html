@@ -2,7 +2,7 @@
 
   <div class="panel-heading">
     <div class="row">Get Friends</div>
-    <div class="row">
+    <div class="row" style="padding:3px !important">
       <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search">
     </div>
   </div>
@@ -17,7 +17,7 @@
       </thead>
       <tbody *ngFor="let user of _users 
       | searchUserPipe : queryString 
-      | paginate: { itemsPerPage: 10, currentPage: p , totalItems: this.total };
+      | paginate: { id:'users', itemsPerPage: 7, currentPage: p , totalItems: this.total };
       let i=index">
         <tr [ngClass]="getColor(i)">
           <!-- <td><code>{{user._id}}</code></td>-->
@@ -35,7 +35,7 @@
         </tr>
       </tbody>
     </table>
-    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+    <pagination-controls id="users" (pageChange)="p = $event" class="my-pagination"></pagination-controls>
   </div>
   <div class="panel-footer">All Grocery List Registred Users</div>
 </div>

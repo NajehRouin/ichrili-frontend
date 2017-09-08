@@ -29,7 +29,7 @@
       </thead>
       <tbody *ngFor="let produit of malist 
       | searchProductPipe : queryString 
-      | paginate: { itemsPerPage: 7, currentPage: p , totalItems: this.total };
+      | paginate: { id:'products', itemsPerPage: 7, currentPage: p , totalItems: this.total };
       let i=index">
         <tr>
           <td class="row">{{ (p- 1) * 7 + i +1 }}</td>
@@ -46,6 +46,6 @@
         </tr>
       </tbody>
     </table>
-    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+    <pagination-controls id="products" (pageChange)="p = $event" class="my-pagination"></pagination-controls>
   </div>
 </div>
