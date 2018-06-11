@@ -1,0 +1,50 @@
+<div class="row" *ngIf="showform">
+    <div class="col-md-10 col-xs-10">
+      <app-categorieform [currentCategorie]='categorie'></app-categorieform>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div style="padding:7px !important">
+      <div class="col-md-4">
+        <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search">
+      </div>
+    </div>
+  </div>
+  
+  <div class="row pagination" >
+    <button class="btn-primary" (click)="displayForm()"> Show Detail form </button>
+    <div class="col-md-11 col-xs-11">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <!-- <th>Code</th>-->
+            <th>categorie</th>
+            <th>Rayon</th>
+            <th>Edit</th>
+            <th>Remove</th>
+            
+          </tr>
+        </thead>
+        <tbody *ngFor="let categorie of malist 
+        
+        | searchCategoriePipe : queryString 
+        | paginate: { id:'categories', itemsPerPage: 7, currentPage: p , totalItems: this.total };
+        let i=index">
+          <tr>
+            <td class="row">{{ (p- 1) * 7 + i +1 }}</td>
+            
+            <td>{{categorie.categorieP}}</td>
+            <td>{{categorie.rayon}}</td>
+            
+            <td><button class="btn-primary" (click)="edit(categorie._id)"><span class="glyphicon glyphicon-pencil"></span> </button></td>
+            <td><button class="btn-danger" (click)="delete(categorie._id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+           
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls id="categories" (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+    </div>
+  </div>
+  

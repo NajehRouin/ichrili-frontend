@@ -1,6 +1,7 @@
 import { Component, NgZone, Inject, EventEmitter, Input, OnInit } from '@angular/core';
 import { NgUploaderOptions, UploadedFile, UploadRejected } from 'ngx-uploader';
 
+
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',

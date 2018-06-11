@@ -1,0 +1,12 @@
+.avatar{
+    width:77px;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+
+.photo_url{
+    padding:10px;
+    width: 30px;
+    height: 70px;
+}

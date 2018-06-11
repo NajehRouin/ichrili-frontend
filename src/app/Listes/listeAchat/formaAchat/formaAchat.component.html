@@ -1,0 +1,45 @@
+
+<div class="row">
+  
+  <form role="form" #form="ngForm">
+    <legend>Product Details</legend>
+    <div class="form-group">
+      <label for="">produit</label>
+
+      <select name="produit" id="product" [(ngModel)]="currentListeAchat.produit" #produit="ngModel" (input)="onChangeProduit()" required>
+        <option *ngFor="let product of products" [(ngValue)]="product.designation">
+          {{product.designation}}
+
+        </option>
+        {{product.designation}}
+      </select>
+      
+      
+      <label for="">market</label>
+      <select name="market" id="market" [(ngModel)]="currentListeAchat.market" #market="ngModel"  required>
+        <option *ngFor="let product of products" [(ngValue)]="product.market_name">
+          {{market_name}}
+
+        </option>
+        {{market_name}}
+      </select>
+  
+     
+      <label for="">quantite</label>
+      <input type="number" [(ngModel)]="currentListeAchat.qte" id="qte" name="qte"><br>
+    
+     
+     
+          <label for="">prix</label>
+      <label *ngFor="let product of products" >{{product.price}}</label>
+      {{product.price}}
+      <label for="">totale</label>
+    
+      
+      
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="addOrEdit(context,currentListeAchat)">{{Btn_SaveAdd_label}}</button>
+
+  </form>
+</div>

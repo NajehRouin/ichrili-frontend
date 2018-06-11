@@ -1,13 +1,17 @@
+
 <div class="row" *ngIf="showform">
+    
   <div class="col-md-10 col-xs-10">
+    
     <app-productform [currentProduct]='produit'></app-productform>
   </div>
 </div>
 
+
 <div class="row">
   <div style="padding:7px !important">
     <div class="col-md-4">
-      <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search">
+      <input class="form-control" type="text" [(ngModel)]="queryS" placeholder="Search produit par designation , market , Categorie">
     </div>
   </div>
 </div>
@@ -21,14 +25,16 @@
           <!-- <th>Code</th>-->
           <th>Designation</th>
           <th>Price</th>
-          <th>Category</th>
+          <th>Categorie</th>
+          <th>Market</th>
+          <th>photo</th>
           <th>Edit</th>
           <th>Remove</th>
-          <th>Upload</th>
+          
         </tr>
       </thead>
       <tbody *ngFor="let produit of malist 
-      | searchProductPipe : queryString 
+      | SearchProductPipe : queryS
       | paginate: { id:'products', itemsPerPage: 7, currentPage: p , totalItems: this.total };
       let i=index">
         <tr>
@@ -36,13 +42,15 @@
           <!--<td><code>{{produit._id}}</code></td>-->
           <td>{{produit.designation}}</td>
           <td>{{produit.price | currency:'TND':false}}</td>
-          <td>{{produit.category}}</td>
-          <td><button class="btn-primary" (click)="edit(produit._id)"><span class="glyphicon glyphicon-pencil"></span> </button></td>
-          <td><button class="btn-danger" (click)="delete(produit._id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+          <td>{{produit.categorie}}</td>
+          <td>{{produit.market}}</td>
           <td>
             <img [src]="produit.photo_url || 'http://localhost:3000/upload/default_product.png'" style="border:1 solid gray;float:left;margin:5px;padding:2px;width:120px;display:block;float:left">
             <app-file-upload [currentProduct]='produit'></app-file-upload>
           </td>
+          <td><button class="btn-primary" (click)="edit(produit._id)"><span class="glyphicon glyphicon-pencil"></span> </button></td>
+          <td><button class="btn-danger" (click)="delete(produit._id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+         
         </tr>
       </tbody>
     </table>

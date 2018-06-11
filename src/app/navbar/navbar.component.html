@@ -13,6 +13,9 @@
       <li class="active">
         <a [routerLink]="['/home']">Home</a>
       </li>
+      <li >
+        <a [routerLink]="['/listAchat']" >listAchat</a>
+      </li>
       <li>
         <a [routerLink]="['/promotion']">Promotions</a>
       </li>
@@ -20,17 +23,43 @@
         <a [routerLink]="['/catalogue']">Catalogue</a>
       </li>
       <li>
-        <a [routerLink]="['/profile']">profile</a>
+        <a [routerLink]="['/productlist']">product</a>
       </li>
       <li>
-        <a [routerLink]="['/users']">users</a>
+        <a [routerLink]=" ['/PrSpecial']" >ProduitSpecial</a>
       </li>
+      <li>
+        <a [routerLink]="['/marketlist']">Markets</a>
+      </li>
+      
+          <li>
+              <a [routerLink]="['/categorielist']">Categorie</a>
+          </li>
+       
+     
+      
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">users_logout <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><button class="btn btn-primary" id="btn" (click)="logout()"> Logout </button></li>
+          
+          <li>
+            <a [routerLink]="['/profile']">profile</a>
+         </li>
+         <li>
+           <a [routerLink]="['/setting'] ">setting</a>
+         </li>
+         <li>
+          <a [routerLink]="['/users']">users</a>
+        </li>
+        <li>
+          <a [routerLink]="['/Liste']">listes</a>
+        </li>
+        <li>
+          <a [routerLink]="['/sendinvit']">sendinvit</a>
+        </li>
+        <li><button class="btn btn-primary" id="btn" (click)="logout()"> Logout </button></li>
         </ul>
       </li>
     </ul>

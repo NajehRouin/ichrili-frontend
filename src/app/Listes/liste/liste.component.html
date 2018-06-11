@@ -1,0 +1,50 @@
+<div class="row" *ngIf="showform" >
+    <div class="col-md-10 col-xs-10">
+      <app-meslistes [currentMesListe]='L'></app-meslistes>
+    </div>
+  </div>
+  
+  
+  
+  <div class="row pagination" >
+    <button class="btn-primary" (click)="displayForm()"> Show liste </button>
+    <div class="col-md-11 col-xs-11">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <!-- <th>Code</th>-->
+            <th>Libelle</th>
+            <th>Date</th>
+            
+            <th>Shared</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Remove</th>
+            
+  
+          </tr>
+        </thead>
+        <tbody *ngFor="let L of malist 
+         
+        | paginate: { id:'meslistes', itemsPerPage: 7, currentPage: p , totalItems: this.total };
+        let i=index">
+          <tr>
+            <td class="row">{{ (p- 1) * 7 + i +1 }}</td>
+            
+            <td>{{L.libelle}}</td>
+            <td>{{L.date}}</td>
+            <td>{{L.shared}}</td>
+  
+            <td>{{L.status}} </td>
+           
+            <td><button class="btn-primary" (click)="edit(L._id)"><span class="glyphicon glyphicon-pencil"></span> </button></td>
+            <td><button class="btn-danger" (click)="delete(L._id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+           
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls id="meslistes" (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+    </div>
+  </div>
+  

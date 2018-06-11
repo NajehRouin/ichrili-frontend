@@ -9,7 +9,8 @@ import { Router, Route } from '@angular/router';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
-  private user: User = new User();
+  private user :User = new User('','','','','','','',0);
+  //private user: User = new User();
   constructor(private _userService: UserService,
     private _router: Router) { }
 

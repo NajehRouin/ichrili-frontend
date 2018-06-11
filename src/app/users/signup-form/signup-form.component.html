@@ -1,21 +1,43 @@
 <form role="form" class="mylist">
   <legend>Register Your Self</legend>
-
   <div class="form-group">
+    <table >
+      <tr>
+        <td>
       <label for="">User Name</label>
       <input type="text" class="form-control" id="user_name" placeholder="Type your user name" name="user_name" [(ngModel)]="user.user_name">
      
       <label for="">Password</label>
       <input type="password" class="form-control" id="password" placeholder="Type your password" name="password" [(ngModel)]="user.password">
-     
+     </td>
+     <td>
       <label for="">Gender</label>
       <input type="text" class="form-control" id="gender" placeholder="your gender" name="gender" [(ngModel)]="user.gender">
 
+  
+
       <label for="">Region</label>
       <input type="text" class="form-control" id="region" placeholder="Type your Region" name="region" [(ngModel)]="user.region">
-  </div>
+   </td>
+   </tr>
+      <tr>
+        <td>
+      <label for="">Email</label>
+     
+      <input type="text" class="form-control" id ="email" placeholder=" your mail" name="email" [(ngModel)]="user.email">
+        </td>
+       <td>
+      <label for="">mobile</label>
+     
+      <input type="number" class="form-control" id ="numtel" placeholder=" your phone" name="numtel" [(ngModel)]="user.numtel">
+     </td>
+    </tr>
+    </table>
+     
+    </div>
+    <button class="btn-primary" (click)="addUser(user)"> Register </button>
 </form>
-<button class="btn-primary" (click)="addUser(user)"> Register </button>
+
 
 <!--
 <code>

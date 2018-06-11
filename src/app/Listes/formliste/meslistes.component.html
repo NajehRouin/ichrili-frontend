@@ -1,0 +1,29 @@
+<div class="row">
+    <form role="form" #form="ngForm">
+      <legend>listes Details</legend>
+      <div class="form-group">
+        <label for="">Mes listes</label>
+        <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="currentMesListe.libelle" placeholder="libelle"
+          (input)="onChangeLibelle()">
+  
+        <label for="">Date</label>
+        <input type="date" class="form-control" id="date" name="date" [(ngModel)]="currentMesListe.d" placeholder="date">
+        <label for="ville">Shared:</label>
+       <input type="checkbox" id="shared" name="shared" [(ngModel)]="currentMesListe.shared" >
+       <br>
+       <label for="">stauts</label>
+       <input type="checkbox" id="status" name="stauts" [(ngModel)]="currentMesListe.status" >
+
+
+       
+         
+        
+        
+
+    </div>
+ 
+      <button type="submit" class="btn btn-primary" (click)="addOrEdit(context,currentMesListe)">{{Btn_SaveAdd_label}}</button>
+ 
+    </form>
+  </div>
+  

@@ -10,7 +10,7 @@ import { Router, Route, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  private _user: User = new User();
+  private _user = new User('','','','','','','',0);
   private result: { err: '', message: '' } = { err: '', message: '' };
   private showMessage: Boolean = false;
 

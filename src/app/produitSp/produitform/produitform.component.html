@@ -1,0 +1,30 @@
+
+    
+<div class="row">
+  
+    <form role="form" #form="ngForm">
+        <fieldset  >
+            <legend>ask for Special product</legend>
+      <div class="form-group">
+        <label for="">Label:</label>
+        <input type="text" class="form-control" id="label" name="label" [(ngModel)]="currentProductSp.label" placeholder="label"
+          (input)="onChangeLabel()">
+  
+          
+        <label for="">Description</label>
+        <textarea  class="form-control" id="description" name="description" [(ngModel)]="currentProductSp.description" placeholder="Description">
+          </textarea>
+        <div class="form-group">
+        <label for="">Budget</label><br>
+       min: <input type="number" id="BudgetMin" name="BudgetMin" [(ngModel)]="currentProductSp.BudgetMin" placeholder="Bedget-Min">
+       max: <input type="number" id="BudgetMax" name="BudgetMax" [(ngModel)]="currentProductSp.BudgetMax" placeholder="Bedget-Max">
+       
+       
+      </div>
+  </div>
+     <button type="submit" class="btn btn-primary" (click)="add(context,currentProductSp)">{{Btn_SaveAdd_label}}</button>
+  </fieldset>
+    
+    </form>
+  </div>
+  

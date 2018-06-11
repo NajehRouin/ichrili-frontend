@@ -6,9 +6,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchProductPipe } from '../search-product.pipe';
 import { Product } from '../models/product';
 import { CurrencyPipe } from '@angular/common';
+import {CategorieService}from'../categorie.service';
 
 const image_url: String = 'http://localhost:3000/upload/';
-
+import{Categorie} from'../models/categorie';
+import{Market,IPosition} from '../models/market';
+import {MarketService} from '../market.service';
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
@@ -16,7 +19,12 @@ const image_url: String = 'http://localhost:3000/upload/';
 })
 export class ProductlistComponent implements OnInit {
   malist: any = new Array();
-  produit: Product = new Product('', '', 0, '', 'default_product.png');
+  pos:IPosition=new IPosition(0,0);
+   categorie:Categorie=new Categorie('','','');
+  market:Market=new Market('','','','','',this.pos);
+  categories:any=[];
+  markets:any=[];
+  produit: Product = new Product('', '', 0, this.categorie,this.market ,'default_product.png');
   private showform: Boolean = false;
   loading = false;
   p: number = 1;
@@ -24,7 +32,8 @@ export class ProductlistComponent implements OnInit {
   currentSelection: number = 0;
   searchString: string = '';
 
-  constructor(private _productService: ProductService) {
+  constructor(private _productService: ProductService,private _marketservice :MarketService,
+  private _categorieservice :CategorieService) {
 
   }
 
@@ -37,10 +46,12 @@ export class ProductlistComponent implements OnInit {
           product.photo_url = image_url + product.photo_url;
         }
       })
-      //console.log(data); 
+      console.log(data); 
     });
     //this.total = this.malist.length;
-
+    this._marketservice.getAllMarkets().subscribe(data => this.markets=data);
+    this._categorieservice.getAllCategories().subscribe(data => this.categories=data);
+    
   }
 
   edit(id) {
@@ -63,4 +74,5 @@ export class ProductlistComponent implements OnInit {
     console.log('after:', this.showform);
   }
 
+  
 }

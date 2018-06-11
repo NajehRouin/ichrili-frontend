@@ -11,7 +11,7 @@ export class UserBadgeComponent implements OnInit {
   private _user: User;
 
   constructor() {
-    this._user = new User;
+    this._user = new User('','','','','','','',0);
   }
 
   ngOnInit() {

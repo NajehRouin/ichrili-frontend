@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Headers, RequestOptions, Response } from '@angular/http';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import 'rxjs';
-
+import { User } from './models/user';
 @Injectable()
 export class UserService {
   headers: Headers;
@@ -19,7 +19,7 @@ export class UserService {
 
 
   public updateUser(url: string, param: any): Observable<any> {
-    return this.http.put(url, param, this.options)
+    return this.http.put(url, param, this.options);
   }
 
   public deleteUser(_id) {

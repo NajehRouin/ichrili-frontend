@@ -13,6 +13,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { SendingInvitationComponent } from './sending-invitation/sending-invitation.component';
 import { SearchUserPipe } from './search-user.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UserBadgeComponent,
     UserListComponent,
     SendingInvitationComponent,
+   
     SearchUserPipe],
   providers: [
     AuthService,
@@ -41,7 +44,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UserBadgeComponent,
     UserListComponent,
     SendingInvitationComponent,
-    SearchUserPipe
+    SearchUserPipe,
+   
   ]
 })
 export class UsersModule { }

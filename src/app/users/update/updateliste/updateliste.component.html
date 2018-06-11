@@ -1,0 +1,19 @@
+
+<div class="row" *ngIf="showform">
+    
+    <div class="col-md-10 col-xs-10">
+      
+      <app-updateform [currentUser]='profile'></app-updateform>
+      
+    </div>
+   
+  </div>
+  
+  <div class="row pagination" >
+      <button class="btn-primary" (click)="displayForm()"> update profil </button>
+    <div class="col-md-11 col-xs-11">
+     
+      <pagination-controls id="user" (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+     
+    </div>
+  </div>

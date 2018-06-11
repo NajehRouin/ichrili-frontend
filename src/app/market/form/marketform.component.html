@@ -1,0 +1,42 @@
+<div class="row">
+    <form role="form" #form="ngForm" name="form" novalidate>
+      <legend>market Details</legend>
+      <div class="form-group">
+        <label for="">Market:</label>
+        <input type="text" class="form-control" id="market_name" name="market_name" [(ngModel)]="currentMarket.market_name" placeholder="market_name"
+          (input)="onChangeMarket_Name()" required>
+        <div ng-message="form.market_name.$error "*ngIf="form.$submitted">champ requis</div>
+        <label for="">Adresse:</label>
+        <input type="text" class="form-control" id="Adresse" name="Adresse" [(ngModel)]="currentMarket.Adresse" placeholder="Adresse" required>
+       <!-- <label for="ville">ville:</label>
+       <input type="text" class="form-control" id="ville" name="ville" [(ngModel)]="currentMarket.ville" placeholder="ville">
+       -->
+       <br>
+       <label for="">Ville</label>
+        <select name="ville" [(ngModel)]="currentMarket.ville" id="ville" >
+          <option  *ngFor="let ville of listeVille" >
+            {{ville}}
+          </option>
+            
+        </select>
+        <!--
+          <label for="">Positon</label><br>
+            
+              <label for="">latitude</label>
+              <input type="text" name="latitude" id="latitude" [(ngModel)]="positon.latitude" placeholder="latitude">
+            
+            
+            <label for="">Longitude</label>
+            <input type="text" name="Longitude" id="Longitude" [(ngModel)]="position.Longitude" placeholder="Longitude">
+        -->
+         
+        
+        
+
+    </div>
+ 
+      <button type="submit" class="btn btn-primary" (click)="addOrEdit(context,currentMarket)">{{Btn_SaveAdd_label}}</button>
+ 
+    </form>
+  </div>
+  

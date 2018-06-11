@@ -1,8 +1,13 @@
 <div class="row mylist">
   <div class="col-xs-6 col-md-3" *ngFor="let produit of malist" >
-    <a href="#" class="thumbnail" (mouseover)="animateProduit()">
-      <img [src]="produit.photo_url" alt="produit.designation" style="width:250px !important">
+    <ul>
+      <li>
+    <a href="productlist" class="thumbnail" (mouseover)="animateProduit()">
+      <img class="photo_url"[src]="produit.photo_url" alt="produit.designation" style="width:250px !important">
     </a>
     {{produit.designation}}  |  {{produit.price | currency:'TND':false}}
+    </li>
+  </ul>
   </div>
 </div>
+

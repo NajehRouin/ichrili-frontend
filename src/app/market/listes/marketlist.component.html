@@ -1,0 +1,58 @@
+<div class="row" *ngIf="showform">
+  <div class="col-md-10 col-xs-10">
+    <app-marketform [currentMarket]='market'></app-marketform>
+  </div>
+</div>
+
+<div class="row">
+  <div style="padding:7px !important">
+    <div class="col-md-4">
+      <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search">
+    </div>
+  </div>
+</div>
+
+<div class="row pagination" >
+  <button class="btn-primary" (click)="displayForm()"> Show Detail form Market </button>
+  <div class="col-md-11 col-xs-11">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Num</th>
+          <!-- <th>Code</th>-->
+          <th>Market</th>
+          <th>Adresse</th>
+          <th>ville</th>
+          <th>photo</th>
+          
+          <th>Edit</th>
+          <th>Remove</th>
+          
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let market of malist 
+      | searchMarketPipe : queryString 
+      | paginate: { id:'markets', itemsPerPage: 7, currentPage: p , totalItems: this.total };
+      let i=index">
+        <tr>
+          <td class="row">{{ (p- 1) * 7 + i +1 }}</td>
+          
+          <td>{{market.market_name}}</td>
+          <td>{{market.Adresse}}</td>
+          <td>{{market.ville}}</td>
+
+          <td>
+            <img [src]="market.photo || 'http://localhost:3000/upload/default_product.png'" style="border:1 solid gray;float:left;margin:5px;padding:2px;width:120px;display:block;float:left">
+            <app-file-market [currentMarket]='market'></app-file-market>
+          </td>
+         
+          <td><button class="btn-primary" (click)="edit(market._id)"><span class="glyphicon glyphicon-pencil"></span> </button></td>
+          <td><button class="btn-danger" (click)="delete(market._id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+         
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls id="markets" (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+  </div>
+</div>

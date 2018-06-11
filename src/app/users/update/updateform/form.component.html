@@ -1,0 +1,32 @@
+<div class="row">
+    
+    <form role="form" #form="ngForm">
+      <legend>Update Profil</legend>
+      <div class="form-group">
+        <label for="">User <router-outlet name="name"></router-outlet>
+        </label>
+        <input type="text" class="form-control" id="user_name" name="user_name" [(ngModel)]="currentUser.user_name" placeholder="user_name"
+          (input)="onChangeUser()" required>
+  
+          
+        <label for="">password:</label>
+        <input type="text" class="form-control" id="password" name="password" [(ngModel)]="currentUser.password" placeholder="password" required>
+
+        <label for="">Gender</label>
+        <input type="text" class="form-control" id="gender" placeholder="your gender" name="gender" [(ngModel)]="currentUser.gender">
+  
+        <label for="">Region</label>
+        <input type="text" class="form-control" id="region" placeholder="Type your Region" name="region" [(ngModel)]="currentUser.region">
+     
+        <label for="">Email</label>
+        <input type="text" class="form-control" id ="email" placeholder=" your mail" name="email" [(ngModel)]="currentUser.email">
+       <label for ="">mobile</label>
+       <input type="number" class="form-control" id="numtel" name="numtel" [(ngModel)]="currentUser.numtel">
+    
+      </div>
+  
+      <button type="submit" class="btn btn-primary" (click)="Edit(context,currentUser)">{{Btn_SaveAdd_label}}</button>
+  
+    </form>
+  </div>
+  

@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
 import { ProductService } from '../product.service';
 import { TweenMax, Power4 } from 'gsap';
-
+import {CategorieService}from'../categorie.service';
+import{Categorie} from'../models/categorie';
 const image_url: String = 'http://localhost:3000/upload/';
-
+import{Market,IPosition} from '../models/market';
+import {MarketService} from '../market.service';
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.component.html',
@@ -12,7 +14,11 @@ const image_url: String = 'http://localhost:3000/upload/';
 })
 export class CatalogueComponent implements OnInit {
   malist: any = new Array();
-  produit: Product = new Product('', '', 0, '', 'default_product.png');
+  public categorie:Categorie=new Categorie('','','');
+  pos:IPosition=new IPosition(0,0);
+  market:Market=new Market('','','','','',this.pos);
+  produit: Product = new Product('', '', 0, this.categorie,this.market ,'default_product.png');
+
 
   constructor(private _productService: ProductService) {
   }

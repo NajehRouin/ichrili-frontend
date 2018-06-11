@@ -3,9 +3,11 @@ import { Product } from '../models/product';
 import { ProductService } from '../product.service';
 import { TweenMax, Power4 } from 'gsap';
 
+import {CategorieService}from'../categorie.service';
+import{Categorie} from'../models/categorie';
 
-
-
+import{Market,IPosition} from '../models/market';
+import {MarketService} from '../market.service';
 const image_url: String = 'http://localhost:3000/upload/';
 
 @Component({
@@ -14,8 +16,13 @@ const image_url: String = 'http://localhost:3000/upload/';
   styleUrls: ['./promotion.component.css']
 })
 export class PromotionComponent implements OnInit {
+ 
   malist: any = new Array();
-  produit: Product = new Product('', '', 0, '', 'default_product.png');
+  pos:IPosition=new IPosition(0,0);
+  market:Market=new Market('','','','','',this.pos);
+  categorie:Categorie=new Categorie('','','');
+  produit: Product = new Product('', '', 0, this.categorie,this.market ,'default_product.png');
+
 
   constructor(private _productService: ProductService) {
   }

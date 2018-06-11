@@ -1,0 +1,18 @@
+<div class="row">
+    <form role="form" #form="ngForm">
+      <legend>categorie Details</legend>
+      <div class="form-group">
+        <label for="">Categorie:</label>
+        <input type="text" class="form-control" id="categorieP" name="categorieP" [(ngModel)]="currentCategorie.categorieP" placeholder="categorieP"
+          (input)="onChangeCategorie_P()">
+  
+        <label for="">rayon</label>
+        <input type="text" class="form-control" id="rayon" name="rayon" [(ngModel)]="currentCategorie.rayon" placeholder="Rayon">
+        
+    </div>
+  
+      <button type="submit" class="btn btn-primary" (click)="addOrEdit(context,currentCategorie)">{{Btn_SaveAdd_label}}</button>
+  
+    </form>
+  </div>
+  
