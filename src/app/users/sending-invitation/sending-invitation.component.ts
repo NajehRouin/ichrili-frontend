@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { User } from '../../models/user';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchUserPipe } from '../search-user.pipe';
-
+import 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sending-invitation',
@@ -26,13 +27,13 @@ export class SendingInvitationComponent implements OnInit {
     private _userService: UserService) { }
 
   ngOnInit() {
-    this._userService.getAllUsers()
-      .map((users: User[]) => {
-        return users.filter((user) => user._id !== this.currentUser._id);
-      })
-      .subscribe((users) => {
-        this._users = users;
+    this._userService.getUsersForInvitations(this.currentUser._id)
+      .subscribe(data => {
+        //console.log(data);
+        this._users=data;
       });
+
+
   }
 
   public sendInvitation(senderId, recieverId) {

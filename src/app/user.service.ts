@@ -4,6 +4,7 @@ import { Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs';
 import { User } from './models/user';
+
 @Injectable()
 export class UserService {
   headers: Headers;
@@ -14,7 +15,8 @@ export class UserService {
 
   public getAllUsers() {
     return this.http.get('http://localhost:3000/users', {})
-      .map((response: Response) => response.json());
+      .map((response: Response) => response.json())
+
   }
 
 
@@ -35,6 +37,11 @@ export class UserService {
 
   public getUserById(userId) {
     return this.http.get('http://localhost:3000/users/' + userId);
+  }
+
+  public getUsersForInvitations(userId) {
+    return this.http.get('http://localhost:3000/users/' + userId,{}) 
+    .map((response: Response) => response.json());
   }
 
 }
