@@ -24,6 +24,10 @@ export class InvitationService {
   }
 
   public getRecievedInvitations(senderId) {
-    return this.http.get(urlApi + '/' + senderId);
+    return this.http.get(urlApi + '/pending/in/' + senderId);
+  }
+
+  public getSendInvitations(senderId) {
+    return this.http.get(urlApi + '/pending/out/' + senderId);
   }
 }

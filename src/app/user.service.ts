@@ -40,7 +40,7 @@ export class UserService {
   }
 
   public getUsersForInvitations(userId) {
-    return this.http.get('http://localhost:3000/users/' + userId,{}) 
+    return this.http.get('http://localhost:3000/users/foreigners/' + userId,{}) 
     .map((response: Response) => response.json());
   }
 

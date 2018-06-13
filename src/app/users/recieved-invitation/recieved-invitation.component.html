@@ -1,3 +1,15 @@
-<p>
-  recieved-invitation works!
-</p>
+<div class="pannel">
+  <div class="panenl-title">Inbox Pending Invitation</div>
+  <div class="panenl-body" >
+     
+      <ul>
+          <li *ngFor="let invitation of recievedInvitation;let i=index">
+            {{invitation.senderId}}
+          </li>
+        </ul>
+      
+
+  </div>
+
+</div>
+

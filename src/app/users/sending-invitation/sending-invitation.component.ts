@@ -29,8 +29,8 @@ export class SendingInvitationComponent implements OnInit {
   ngOnInit() {
     this._userService.getUsersForInvitations(this.currentUser._id)
       .subscribe(data => {
-        //console.log(data);
-        this._users=data;
+       // console.log(data);
+        this._users = data;
       });
 
 
@@ -39,6 +39,8 @@ export class SendingInvitationComponent implements OnInit {
   public sendInvitation(senderId, recieverId) {
     this._invitationService.sendInvitation({ senderId: senderId, recieverId: recieverId })
       .subscribe(response => console.log(response));
+    this._users = this._users.filter(user => user._id !== recieverId);
+
   }
 
   public getAvatarUrl(gender) {

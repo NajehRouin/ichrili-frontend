@@ -30,11 +30,11 @@
     
      
      
-          <label for="">prix</label>
+          <label for="prix">prix</label>
       <label *ngFor="let product of products" >{{product.price}}</label>
       {{product.price}}
       <label for="">totale</label>
-    
+      <span ng-bind="qte"></span>
       
       
     </div>

@@ -1,14 +1,9 @@
 
-<div class="row" *ngIf="showform">
-    
-    <div class="col-md-10 col-xs-10">
-      
+<div class="row" *ngIf="showform">   
+    <div class="col-md-10 col-xs-10"> 
       <app-produitform [currentProductSp]='productsp'></app-produitform>
     </div>
   </div>
-  
-  
-  
 
   <div class="row pagination" >
     <button class="btn-primary" (click)="displayForm()"> Add product Special </button>
