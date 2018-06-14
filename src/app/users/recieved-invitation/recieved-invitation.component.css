@@ -1,0 +1,15 @@
+.avatar{
+    width:33%;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.avatar_container{  
+    padding:-5px;
+    display: block;
+    float: left;
+}
+
+li {
+    list-style: none;
+}

@@ -23,10 +23,10 @@ export class HomeComponent implements OnInit {
   listmarket :any= new Array();
   listProduit :any=new Array();
   p: number = 1;
-  categorie:Categorie = new Categorie('','','');
-  pos:IPosition=new IPosition(0,0);
-  market:Market=new Market('','','','','',this.pos);
-  produit:Product=new Product('','',0,this.categorie,this.market,'');
+  categorie:any=[];
+ 
+  market:any=[];
+  produit:any=[];
   markets:any=[];
   categories:any=[];
   total: number = 0;

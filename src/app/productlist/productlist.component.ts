@@ -19,12 +19,12 @@ import { MarketService } from '../market.service';
 })
 export class ProductlistComponent implements OnInit {
   malist: any = new Array();
-  pos: IPosition = new IPosition(0, 0);
-  categorie: Categorie = new Categorie('', '', '');
-  market: Market = new Market('', '', '', '', '', this.pos);
+  
+  categorie: any=[];
+  market:any=[];
   categories: any = [];
   markets: any = [];
-  produit: Product = new Product('', '', 0, this.categorie, this.market, 'default_product.png');
+  produit: Product = new Product('', '', 0,'' ,this.categorie, this.market, 'default_product.png');
   private showform: Boolean = false;
   loading = false;
   p: number = 1;

@@ -28,7 +28,7 @@ markets:any[];
 public pos:IPosition=new IPosition(0,0);
 public categorie:Categorie=new Categorie('','','');
 market:Market=new Market('','','','','',this.pos);
-product :Product =new Product('','',0,this.categorie,this.market,'');
+product :Product =new Product('','',0,'',this.categorie,this.market,'');
   @Input() private currentListeAchat: any;
 
   constructor(private _listeAchatService:ListeAchatService,

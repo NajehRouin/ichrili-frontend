@@ -1,15 +1,24 @@
-<div class="pannel">
-  <div class="panenl-title">Inbox Pending Invitation</div>
-  <div class="panenl-body" >
-     
-      <ul>
-          <li *ngFor="let invitation of recievedInvitation;let i=index">
-            {{invitation.senderId}}
-          </li>
-        </ul>
-      
+<div class="panel panel-primary">
+  <div class="panel panel-title panel-heading">Invitations Réçus</div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group list-group-item-info" *ngFor="let invitation of recievedInvitation;let i=index">
+        <!-- {{invitation.senderId}} -->
+        <div>
+          <span>
+            <img class="avatar" [src]="getAvatarUrl(invitation.senderGender)" />
+          </span>
+          <span class="senderInfo">{{invitation.senderName | uppercase}} </span>
+          <span class="senderInfo">{{invitation.senderAdress}} </span>
+          <div class="btn-group-sm">
+            <button class="btn btn-success" (click)="accept($event)">Accept</button>
+            <button class="btn btn-danger" (click)="reject($event)">Reject</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+
 
   </div>
 
 </div>
-

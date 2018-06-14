@@ -24,25 +24,16 @@ export class RecievedInvitationComponent implements OnInit {
     this.invitationService.getRecievedInvitations(this.currentUser._id)
       .subscribe(invitations => {
         this.recievedInvitation = invitations.json();
-
-        this.recievedInvitation.map(inv => this.senders.push(inv.senderId));
-        console.log("recieved Invitation ----------- ", this.senders);
-
-        this.userService.getAllUsers()
-          .subscribe(data => {
-            this.users = data;
-            console.log("Users -----before ", this.users);
-            console.log("senders -----before ", this.senders);
-            this.users.filter(u => {
-              u._id in this.senders
-            });
-            console.log("Users ------After ", this.users);
-            console.log("senders ------After ", this.senders)
-          });
-
       });
 
 
+  }
+
+  accept(event){
+
+  }
+  reject(){
+    
   }
 
 

@@ -36,10 +36,10 @@ export class SendingInvitationComponent implements OnInit {
 
   }
 
-  public sendInvitation(senderId, recieverId) {
-    this._invitationService.sendInvitation({ senderId: senderId, recieverId: recieverId })
+  public sendInvitation(sender, reciever) {
+    this._invitationService.sendInvitation({ sender: sender, reciever: reciever })
       .subscribe(response => console.log(response));
-    this._users = this._users.filter(user => user._id !== recieverId);
+    this._users = this._users.filter(user => user._id !== reciever._id);
 
   }
 

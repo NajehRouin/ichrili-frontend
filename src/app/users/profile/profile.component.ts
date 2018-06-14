@@ -8,10 +8,10 @@ import { User } from '../../models/user';
 })
 export class ProfileComponent implements OnInit {
   private _avatar_url: string;
-  private _user: User;
-
+ private _user: User;
+//private _user:any[];
   constructor() {
-    this._user = new User('','','','','','','',0);
+    this._user =new User('','','','','','','',0);
   }
 
   ngOnInit() {
