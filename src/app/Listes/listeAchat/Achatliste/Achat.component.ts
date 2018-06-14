@@ -28,7 +28,7 @@ export class AchatlisteComponent implements OnInit {
     
     products :any=[];
     markets:any=[];
-    produit: Product = new Product('', '', 0, this.categorie, this.market, '');
+    produit: Product = new Product('', '', 0,'', this.categorie, this.market, '');
     listA: listaAchat = new listaAchat('', this.produit, '', 0, 0, 0);
     private showform: Boolean = false;
     loading = false;

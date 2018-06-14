@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
 
   <div class="panel-heading">
-    <div class="row">Get Friends</div>
+    <div class="row">   Get Friends   </div>
     <div class="row" style="padding:3px !important">
       <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search">
     </div>
@@ -13,25 +13,23 @@
           <!-- <th>#</th>-->
           <th>Avatar</th>
           <th>User</th>
-        </tr>
-        
+        </tr> 
       </thead>
       <tbody *ngFor="let user of _users 
       | searchUserPipe : queryString 
       | paginate: { id:'users', itemsPerPage: 7, currentPage: p , totalItems: this.total };
       let i=index">
-        <tr [ngClass]="getColor(i)">
-          <!-- <td><code>{{user._id}}</code></td>-->
+         <tr [ngClass]="getColor(i)"> 
+          <!--  <td><code>{{user._id}}</code></td> -->
           <td>
             <div class="avatar_container">
               <img class="avatar" [src]="getAvatarUrl(user.gender)" /></div>
           </td>
 
           <td class="text-info">
-            <button class="btn btn-success" (click)="sendInvitation(currentUser._id,user._id)"> Send To</button> {{user.user_name
+            <button class="btn btn-success" (click)="sendInvitation(currentUser,user)"> Send To</button> {{user.user_name
             | uppercase}}
-            <p>{{user.gender}}</p>
-            <p><i>{{user.region}}</i></p>
+            <p>{{user.gender}} <i>{{user.region}}</i></p>
           </td>
         </tr>
       </tbody>

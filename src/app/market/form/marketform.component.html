@@ -14,7 +14,7 @@
        <br>
        <label for="">Ville</label>
         <select name="ville" [(ngModel)]="currentMarket.ville" id="ville" >
-          <option  *ngFor="let ville of listeVille" >
+          <option  *ngFor="let ville of listeVille"  >
             {{ville}}
           </option>
             
@@ -35,8 +35,8 @@
 
     </div>
  
-      <button type="submit" class="btn btn-primary" (click)="addOrEdit(context,currentMarket)">{{Btn_SaveAdd_label}}</button>
- 
+      <button type="submit" class="btn btn-primary" (click)="add(context,currentMarket)">{{Btn_SaveAdd_label}}</button>
+ <button type="submit" clas="btn btn-primary" (click)="edit(update,currentMarket)">{{Btn_Update}} </button>
     </form>
   </div>
   

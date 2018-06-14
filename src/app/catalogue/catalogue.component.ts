@@ -17,7 +17,7 @@ export class CatalogueComponent implements OnInit {
   public categorie:Categorie=new Categorie('','','');
   pos:IPosition=new IPosition(0,0);
   market:Market=new Market('','','','','',this.pos);
-  produit: Product = new Product('', '', 0, this.categorie,this.market ,'default_product.png');
+  produit: Product = new Product('', '', 0,'', this.categorie,this.market ,'default_product.png');
 
 
   constructor(private _productService: ProductService) {

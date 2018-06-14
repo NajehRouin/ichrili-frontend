@@ -3,11 +3,9 @@ import { Product } from '../models/product';
 import { ProductService } from '../product.service';
 import { TweenMax, Power4 } from 'gsap';
 
-import {CategorieService}from'../categorie.service';
-import{Categorie} from'../models/categorie';
 
-import{Market,IPosition} from '../models/market';
-import {MarketService} from '../market.service';
+
+
 const image_url: String = 'http://localhost:3000/upload/';
 
 @Component({
@@ -18,11 +16,9 @@ const image_url: String = 'http://localhost:3000/upload/';
 export class PromotionComponent implements OnInit {
  
   malist: any = new Array();
-  pos:IPosition=new IPosition(0,0);
-  market:Market=new Market('','','','','',this.pos);
-  categorie:Categorie=new Categorie('','','');
-  produit: Product = new Product('', '', 0, this.categorie,this.market ,'default_product.png');
 
+ 
+produit:any=[];
 
   constructor(private _productService: ProductService) {
   }
@@ -31,7 +27,7 @@ export class PromotionComponent implements OnInit {
     this._productService.getAllProducts().subscribe(data => {
       this.malist = data;
       this.malist.map((product) => {
-        console.log('product:', product);
+        //console.log('product:', product);
         if (product.photo_url) {
           product.photo_url = image_url + product.photo_url;
         }

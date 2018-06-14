@@ -1,5 +1,5 @@
 <div class="row">
-    
+
   <form role="form" #form="ngForm">
     <legend>Product Details</legend>
     <div class="form-group">
@@ -7,25 +7,31 @@
       <input type="text" class="form-control" id="designation" name="designation" [(ngModel)]="currentProduct.designation" placeholder="designation"
         (input)="onChangeDesignation()" required>
 
-        
+
       <label for="">Price:</label>
       <input type="text" class="form-control" id="price" name="price" [(ngModel)]="currentProduct.price" placeholder="price" required>
+      <label for="">unite:</label>
+      <input type="text" class="form-control" id="unite" name="unite" [(ngModel)]="currentProduct.unite" placeholder="unite" required>
+
+
+
       <label for="categorie">Category:</label>
-     
-        <select name="categorie"  [(ngModel)]="currentProduct.categorie"  #categorie="ngModel"  >
-            <option  *ngFor="let categorie of categories" [ngValue]="categorie.categorieP" >{{categorie.categorieP}}</option>
-            
-        </select>
-        {{categorie.categorieP}}
-    <label for="">Market</label>
-    <select name="market" [(ngModel)]="currentProduct.market" id="market">
-      <option *ngFor="let market of markets" [(ngValue)]="market.market_name">
-        {{market.market_name}}
-      </option>
-    </select>
+
+      <select name="categorie" [(ngModel)]="currentProduct.categorie" #categorie="ngModel">
+        <option *ngFor="let categorie of categories" [ngValue]="categorie.categorieP">{{categorie.categorieP}}</option>
+
+      </select>
+      {{categorie.categorieP}}
+      <label for="">Market</label>
+      <select name="market" [(ngModel)]="currentProduct.market" id="market">
+        <option *ngFor="let market of markets" [(ngValue)]="market.market_name">
+          {{market.market_name}}
+        </option>
+      </select>
     </div>
 
-    <button type="submit" class="btn btn-primary" (click)="addOrEdit(context,currentProduct)">{{Btn_SaveAdd_label}}</button>
+    <button type="submit" class="btn btn-primary" (click)="add(context,currentProduct)">{{Btn_SaveAdd_label}}</button>
+    <button type submit class="btn btn-primary" (click)="edit(con,currentProduct)">{{btn_ubdate}} </button>
 
   </form>
 </div>
