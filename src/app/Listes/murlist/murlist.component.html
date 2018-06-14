@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+  <div class="panel-heading" *ngFor="let list of mList;let i=index">
+    <div class="panel panel-title success">
+      <h4>{{list.label}}      <button class="btn btn-warning rond" (change)="update($event)"> + </button></h4>
+      <small style="color:gray"> created @ </small>
+      <span class="text-info">{{list.date_creation}} </span>
+    </div>
+    <div class="panel panel-body" style="background-color:#d0e7f4 !important" *ngFor="let item of list.items">
+      <code class="ordre">#{{item.ord}} </code>
+      <span class="designation">{{item.produit.designation}}</span>
+      <span class="market">{{item.produit.market}}</span>
+      <span class="price">{{item.produit.price}}</span>
+      <span class="quantity">{{item.qte}}</span>
+      <span class="total">Total</span>
+
+      <button class="btn btn-info rond"> - </button>
+    </div>
+    <span> Total List</span>
+  </div>
+  <br>
+</div>
