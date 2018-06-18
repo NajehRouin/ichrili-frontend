@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { UserService } from '../../../user.service';
+import { UserService } from '../../../service/user.service';
 import { User } from '../../../models/user';
 import { CurrencyPipe } from '@angular/common';
 
@@ -14,9 +14,9 @@ import { CurrencyPipe } from '@angular/common';
   styleUrls: ['./updateliste.component.css']
 })
 export class UpdateComponent implements OnInit {
- 
-    
-  profile :User = new User('','','','','','','',0);
+
+
+  profile: User = new User('', '', '', '', '', '', '', 0);
   //profile: User = new User();
   private showform: Boolean = true;
   loading = false;
@@ -24,14 +24,16 @@ export class UpdateComponent implements OnInit {
   total: number = 0;
   currentSelection: number = 0;
   searchString: string = '';
-
-  constructor(private _userService : UserService) {
+  pro: any = [];
+  private _user: User;
+  constructor(private _userService: UserService) {
+    this._user =new User('','','','','','','',0);
 
   }
 
   ngOnInit() {
- 
     
+
   }
 
 
@@ -43,5 +45,5 @@ export class UpdateComponent implements OnInit {
     console.log('after:', this.showform);
   }
 
-  
+
 }

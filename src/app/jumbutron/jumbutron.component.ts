@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../service/product.service';
 
 const image_url: String = 'http://localhost:3000/upload/';
 

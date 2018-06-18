@@ -1,19 +1,19 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../product.service';
+import { ProductService } from '../../../service/product.service';
 import { Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchProductPipe } from '../../../search-product.pipe';
 import { Product } from '../../../models/product';
 import { CurrencyPipe } from '@angular/common';
-import { CategorieService } from '../../../categorie.service';
+import { CategorieService } from '../../../service/categorie.service';
 
 
 import { Categorie } from '../../../models/categorie';
-import { Market, IPosition } from '../../../models/market';
-import { MarketService } from '../../../market.service';
-import { ListeAchatService } from '../../../listeAchat.service';
+import { Market } from '../../../models/market';
+import { MarketService } from '../../../service/market.service';
+import { ListeAchatService } from '../../../service/listeAchat.service';
 import { listaAchat } from '../../../models/listeAchat';
 @Component({
     selector: 'app-Achat',
@@ -22,9 +22,9 @@ import { listaAchat } from '../../../models/listeAchat';
 })
 export class AchatlisteComponent implements OnInit {
     malist: any = new Array();
-    pos: IPosition = new IPosition(0, 0);
+    
     categorie: Categorie = new Categorie('', '', '');
-    market: Market = new Market('', '', '', '', '', this.pos);
+    market: Market = new Market('', '', '', '', 0);
     
     products :any=[];
     markets:any=[];

@@ -7,6 +7,7 @@ import { NgUploaderOptions, UploadedFile, UploadRejected } from 'ngx-uploader';
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css']
 })
+
 export class FileUploadComponent implements OnInit {
   @Input() private currentProduct: any = {};
   @Input() private options: NgUploaderOptions;

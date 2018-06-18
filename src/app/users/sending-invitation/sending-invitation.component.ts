@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InvitationService } from '../invitation.service';
-import { UserService } from '../../user.service';
+import { UserService } from '../../service/user.service';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../models/user';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -17,6 +17,7 @@ export class SendingInvitationComponent implements OnInit {
 
   private currentUser = JSON.parse(localStorage.getItem('currentUser'));
   private _users = [];
+
   private invitation = { senderId: '', recieverId: '' };
   private p: Number = 1;
   private total: Number = 0;
@@ -41,6 +42,8 @@ export class SendingInvitationComponent implements OnInit {
       .subscribe(response => console.log(response));
     this._users = this._users.filter(user => user._id !== reciever._id);
 
+   
+    
   }
 
   public getAvatarUrl(gender) {

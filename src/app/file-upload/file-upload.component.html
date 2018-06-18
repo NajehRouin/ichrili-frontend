@@ -4,6 +4,7 @@
            class="hidden"
            name="photo"
            ngFileSelect
+
            [options]="options"
            [events]="inputUploadEvents"
            (onUpload)="handleUpload($event)"
@@ -19,9 +20,7 @@
   <button type="button" class="start-upload-button" (click)="startUpload()">
       <span class="glyphicon glyphicon-upload"></span></button>
 </div>
-<!--<div *ngIf="response ">
-  <pre><code>{{ response | json }}</code></pre>
-</div>-->
+
 <div>
   <pre><code>{{ category | json }}</code></pre>
 </div>

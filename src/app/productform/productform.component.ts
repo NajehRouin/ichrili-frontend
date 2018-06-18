@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { ProductlistComponent } from '../productlist/productlist.component';
-import { ProductService } from '../product.service';
+import { ProductService } from '../service/product.service';
 import { Product } from '../models/product';
 import 'rxjs';
 
-import { Market, IPosition } from '../models/market';
-import { CategorieService } from '../categorie.service';
+import { Market} from '../models/market';
+import { CategorieService } from '../service/categorie.service';
 import { Categorie } from '../models/categorie';
-import { MarketService } from '../market.service';
+import { MarketService } from '../service/market.service';
 @Component({
+  
   selector: 'app-productform',
   templateUrl: './productform.component.html',
   styleUrls: ['./productform.component.css']

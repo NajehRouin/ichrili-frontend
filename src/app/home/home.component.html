@@ -2,13 +2,15 @@
 <!-- users for to invite-->
 <div class="col-md-2">
   <div class="row">
-    <img class="avatar" [src]="_avatar_url" />
+    <img class="avatar" [src]="_avatar_url " />
+   
     <span class="text-primary">
-      <b>Welcome: </b>
-
-      {{_user.user_name}} :Admin</span>
+      Welcome:
+    </span>
+      {{_user.user_name}} :Admin
     <br>
   </div>
+
   <div class="row">
     <app-sending-invitation></app-sending-invitation>
   </div>
@@ -16,13 +18,24 @@
 <!-- end user to invite-->
 
 
-<div class="col-md-7">
-  <app-produitlist></app-produitlist>
+<div class="col-md-8">
+  <app-murlist></app-murlist>
 </div>
 
 
 
 
-<div class="col-md-3">
-  <app-recieved-invitation></app-recieved-invitation>
+
+
+<div class="col-md-2">
+
+    <app-recieved-invitation></app-recieved-invitation>
+  <button class="btn btn-success" ><a href="http://localhost:4200/PrSpecial">Ask for product special</a></button>
+ 
+
+
+</div>
+
+<div class="">
+  <!--<app-formu-liste></app-formu-liste>-->
 </div>

@@ -23,7 +23,7 @@ constructor( @Inject(NgZone) private zone: NgZone) {
       maxSize: 2097152,
       data:  { marketId: this.currentMarket._id},
       autoUpload: false,
-      fieldName: 'phot',
+      fieldName: 'img',
       fieldReset: true,
       maxUploads: 2,
       method: 'POST',

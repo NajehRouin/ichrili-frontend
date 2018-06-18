@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { MarketListeComponent } from '../listes/marketlist.component';
-import { MarketService } from '../../market.service';
-import { Market, IPosition } from '../../models/market';
+import { MarketService } from '../../service/market.service';
+import { Market} from '../../models/market';
 import 'rxjs';
 
 @Component({
@@ -20,14 +20,15 @@ export class MarketformComponent implements OnInit {
   private listeVille: any = ['mahdia', 'tunis', 'sousse', 'sfax', 'sidi bouzid', 'gafsa', 'kairouan',
     'Monastir', 'tataouine', 'kébili', 'bizerte', 'ben arous', 'tozeur', 'manouba', 'mednin', 'Ariana',
     'beja', 'gabes', 'jendouba', 'kasserine', 'kef', 'nabeul', 'siliana', 'zaghouan'];
-  pos: IPosition = new IPosition(0, 0);
+ 
   @Input() private currentMarket: any;
+
 
   constructor(private _marketService: MarketService) { }
 
   ngOnInit() {
 
-    this.currentMarket = { _id: '', market_name: '', Adresse: '', ville: this.listeVille, position: this.pos };
+    this.currentMarket = { _id: '', market_name: '', Adresse: '', ville: this.listeVille,code :1 };
   }
 
   onChangeMarket_Name() {
@@ -59,11 +60,11 @@ default :
   
 
   public updateCurrentMarket(theMarket) {
-    let body = { market_name: '', Adresse: '', ville: this.listeVille, position: this.pos };
+    let body = { market_name: '', Adresse: '', ville: this.listeVille, code:1 };
     body.market_name = theMarket.market_name;
     body.Adresse = theMarket.Adresse;
     body.ville = theMarket.ville;
-    body.position = theMarket.position;
+    body.code = theMarket.code;
     this._marketService
       .updateMarkets('http://localhost:3000/markets/' + theMarket._id, body)
       .subscribe(
@@ -71,15 +72,15 @@ default :
         error => this.errorMessage = <any>error
       );
 
-    this.currentMarket = { _id: '', market_name: '', Adresse: '', ville: this.listeVille, position: this.pos };
+    this.currentMarket = { _id: '', market_name: '', Adresse: '', ville: this.listeVille, code:1 };
   }
 
   public addCurrentMarket(theMarket) {
-    let body = { market_name: '', Adresse: '', ville: this.listeVille, position: this.pos };
+    let body = { market_name: '', Adresse: '', ville: this.listeVille, code:1 };
     body.market_name = theMarket.market_name;
     body.Adresse = theMarket.Adresse;
     body.ville = theMarket.ville;
-    body.position = theMarket.position;
+    body.code = theMarket.code;
 
     this._marketService
       .addMarkets(body)
@@ -87,7 +88,7 @@ default :
         result => console.log(result),
         error => this.errorMessage = <any>error
       );
-    this.currentMarket = { _id: '', market_name: '', Adresse: '', ville: this.listeVille, position: this.pos };
+    this.currentMarket = { _id: '', market_name: '', Adresse: '', ville: this.listeVille, code:1 };
   }
 
 }

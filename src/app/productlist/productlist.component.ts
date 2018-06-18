@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../service/product.service';
 import { Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchProductPipe } from '../search-product.pipe';
 import { Product } from '../models/product';
 import { CurrencyPipe } from '@angular/common';
-import { CategorieService } from '../categorie.service';
+import { CategorieService } from '../service/categorie.service';
 
 const image_url: String = 'http://localhost:3000/upload/';
 import { Categorie } from '../models/categorie';
-import { Market, IPosition } from '../models/market';
-import { MarketService } from '../market.service';
+import { Market,  } from '../models/market';
+import { MarketService } from '../service/market.service';
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
@@ -36,6 +36,7 @@ export class ProductlistComponent implements OnInit {
     private _categorieservice: CategorieService) {
 
   }
+  
 
   ngOnInit() {
     this._productService.getAllProducts().subscribe(data => {

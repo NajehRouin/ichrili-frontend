@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { ProduitlistComponent } from '../produitlist/produitlist.component';
-import { ProductSpeService } from '../../productspe.service';
+import { ProductSpeService } from '../../service/productspe.service';
 import { Productspe } from '../../models/productspe';
 import 'rxjs';
 

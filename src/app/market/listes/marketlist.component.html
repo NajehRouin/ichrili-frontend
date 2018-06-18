@@ -23,7 +23,7 @@
           <th>Market</th>
           <th>Adresse</th>
           <th>ville</th>
-          <th>photo</th>
+          <th>code Postale</th>
           
           <th>Edit</th>
           <th>Remove</th>
@@ -41,11 +41,8 @@
           <td>{{market.market_name}}</td>
           <td>{{market.Adresse}}</td>
           <td>{{market.ville}}</td>
-
-          <td>
-            <img [src]="market.photo || 'http://localhost:3000/upload/default_product.png'" style="border:1 solid gray;float:left;margin:5px;padding:2px;width:120px;display:block;float:left">
-            <app-file-market [currentMarket]='market'></app-file-market>
-          </td>
+          <td>{{market.code}} </td>
+          
          
           <td><button class="btn-primary" (click)="edit(market._id)"><span class="glyphicon glyphicon-pencil"></span> </button></td>
           <td><button class="btn-danger" (click)="delete(market._id)"><span class="glyphicon glyphicon-remove"></span></button></td>

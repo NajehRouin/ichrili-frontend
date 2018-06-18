@@ -1,9 +1,13 @@
 <div class="panel panel-primary">
-  <div class="panel panel-title panel-heading">Invitations Réçus</div>
+  <div class="panel panel-title panel-heading">Invitations Réçus
+    <span class="recived badge">
+      {{recievedInvitation.length}} 
+    </span>
+  </div>
   <div class="panel-body">
     <ul class="list-group">
       <li class="list-group list-group-item-info" *ngFor="let invitation of recievedInvitation;let i=index">
-        <!-- {{invitation.senderId}} -->
+       
         <div>
           <span>
             <img class="avatar" [src]="getAvatarUrl(invitation.senderGender)" />
@@ -11,14 +15,42 @@
           <span class="senderInfo">{{invitation.senderName | uppercase}} </span>
           <span class="senderInfo">{{invitation.senderAdress}} </span>
           <div class="btn-group-sm">
-            <button class="btn btn-success" (click)="accept($event)">Accept</button>
+            <button class="btn btn-success" (click)="accept(currentUser,user)">Accept</button>
             <button class="btn btn-danger" (click)="reject($event)">Reject</button>
           </div>
         </div>
+
       </li>
     </ul>
+
 
 
   </div>
 
 </div>
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel panel-title panel-heading">friends
+    <div class="recived text-danger"></div>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group list-group-item-success">
+
+        <div>
+        
+        </div>
+
+      </li>
+    </ul>
+
+
+
+  </div>
+
+</div>
+

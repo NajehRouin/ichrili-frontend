@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategorieService } from '../../categorie.service';
+import { CategorieService } from '../../service/categorie.service';
 import { Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
