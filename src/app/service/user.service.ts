@@ -44,4 +44,8 @@ export class UserService {
     .map((response: Response) => response.json());
   }
 
+  public getFreinds(userId) {
+    return this.http.get('http://localhost:3000/users/friends/' + userId,{}) 
+    .map((response: Response) => response.json());
+  }
 }

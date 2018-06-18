@@ -2,6 +2,7 @@ import { Component, OnInit, Output, ViewChild, AfterViewInit, EventEmitter } fro
 import { ListeAchatService } from '../../service/listeAchat.service';
 import { ModalDirective } from 'ng2-bootstrap/modal';
 import { ProductService } from '../../service/product.service';
+import { UserService } from '../../service/user.service';
 
 
 @Component({
@@ -24,18 +25,29 @@ export class MurlistComponent implements OnInit {
     "name": this.theUser.user_name,
     "ville": this.theUser.region
   }
+  isNewList: boolean;
+
 
   constructor(
     private murList: ListeAchatService,
-    private productService: ProductService
+    private productService: ProductService,
+    private friendService: UserService
   ) { }
 
 
   ngOnInit() {
-    this.murList.getAllListeAchat()
+   /* this.murList.getAllListeAchat()
       .subscribe(
         data => {
-          //console.log(data);
+          console.log("owner list",data);
+          this.mList = data;
+          console.log("mList : ", this.mList)
+        }
+*/
+    this.murList.getAllListeAchatByOwner(this.currentUser.id)
+      .subscribe(
+        data => {
+          console.log("owner list",data);
           this.mList = data;
           console.log("mList : ", this.mList)
         }
@@ -47,8 +59,7 @@ export class MurlistComponent implements OnInit {
 
       })
     this.Total = new Array(this.mList.length);
-
-    //console.log('current User',this.currentUser);
+    
 
   }
 
@@ -104,15 +115,35 @@ export class MurlistComponent implements OnInit {
   addListToMur() {
     this.menuModal.show();
   }
+
   ajouterNouvelleListe(nomNouvelList) {
+    //this.currenList=[];
+    this.isNewList = true;
     var newlist = {
       "label": nomNouvelList,
       date_creation: new Date(),
       owner: this.currentUser,
-      items:[]
+      items: []
     }
 
     this.mList.push(newlist);
-    this.menuModal.hide();  }
+    this.currenList = newlist;
+    this.menuModal.hide();
+   
+  }
 
+
+  saveList(listIndex) {
+    // console.log(this.mList);
+    if (this.isNewList) {
+     this.murList.addListeAchat(this.currenList).
+     subscribe(result=>{
+       console.log('result:',result);
+     })
+    } else {
+      this.murList.updateListeAchat(this.mList[listIndex]._id, this.mList[listIndex])
+        .subscribe(data => console.log(data))
+    }
+    this.isNewList=false;
+  }
 }
