@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService}from'../product.service';
+import {ProductService}from'../service/product.service';
 import{Product} from '../models/product';
-import{MarketService} from '../market.service';
-import{Market,IPosition} from '../models/market';
+import{MarketService} from '../service/market.service';
+import{Market} from '../models/market';
 import {Categorie} from '../models/categorie';
-import{CategorieService}from '../categorie.service';
+import{CategorieService}from '../service/categorie.service';
 import { User } from './../models/user';
 import {searchCategoriePipe} from '../searche-categorie.pipe';
 import {SearchProductPipe} from '../search-product.pipe';
 import {SearchMarketPipe} from '../search-market.pipe';
 import { Productspe } from './../models/productspe';
-import { ProductSpeService } from './../productspe.service';
+import { ProductSpeService } from './../service/productspe.service';
 const image_url: String = 'http://localhost:3000/upload/';
 @Component({
   selector: 'app-home',

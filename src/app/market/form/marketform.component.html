@@ -8,9 +8,7 @@
         <div ng-message="form.market_name.$error "*ngIf="form.$submitted">champ requis</div>
         <label for="">Adresse:</label>
         <input type="text" class="form-control" id="Adresse" name="Adresse" [(ngModel)]="currentMarket.Adresse" placeholder="Adresse" required>
-       <!-- <label for="ville">ville:</label>
-       <input type="text" class="form-control" id="ville" name="ville" [(ngModel)]="currentMarket.ville" placeholder="ville">
-       -->
+     
        <br>
        <label for="">Ville</label>
         <select name="ville" [(ngModel)]="currentMarket.ville" id="ville" >
@@ -19,16 +17,8 @@
           </option>
             
         </select>
-        <!--
-          <label for="">Positon</label><br>
-            
-              <label for="">latitude</label>
-              <input type="text" name="latitude" id="latitude" [(ngModel)]="positon.latitude" placeholder="latitude">
-            
-            
-            <label for="">Longitude</label>
-            <input type="text" name="Longitude" id="Longitude" [(ngModel)]="position.Longitude" placeholder="Longitude">
-        -->
+     <label for="">code postale</label>
+     <input type="number" name="code" id="code" [(ngModel)]="currentMarket.code">
          
         
         

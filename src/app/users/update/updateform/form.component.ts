@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { UpdateComponent } from '../updateliste/updateliste.component';
-import { UserService } from '../../../user.service';
+import { UserService } from '../../../service/user.service';
 import { User } from '../../../models/user';
 import 'rxjs';
+
 
 
 
@@ -19,19 +20,23 @@ export class UpdateFormComponent implements OnInit {
   private errorMessage: String = '';
   private Btn_SaveAdd_label = 'UPDATE Profile';
    private Mliste:any;
-  
+  _user:any;
   @Input() private currentUser: any;
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService) { 
+    this._user =new User('','','','','','','',0);
+  }
 
   ngOnInit() {
 
-      this.currentUser = { _id: '', user_name: '', password: '', avatar_url:'',gender:'',region:'',email:'',numtel:0};
-  }
+     // this.currentUser = { _id: '', user_name: '', password: '', avatar_url:'',gender:'',region:'',email:'',numtel:0};
+     this._user = JSON.parse(localStorage.getItem('currentUser'));
+ 
+    }
  
   onChangeUser() {
 
-    if (this.currentUser._id === '') {
+    if (this._user._id === '') {
       this.context = 'UPDATE';
        this.Btn_SaveAdd_label = 'UPDATE Profile';
     }
@@ -62,7 +67,7 @@ export class UpdateFormComponent implements OnInit {
       error => this.errorMessage = <any>error
       );
 
-      this.currentUser = { _id: '', user_name: '', password: '', avatar_url:'',gender:'',region:'',email:'',numtel:0 };
+      this._user = { _id: '', user_name: '', password: '', avatar_url:'',gender:'',region:'',email:'',numtel:0 };
   }
 
 

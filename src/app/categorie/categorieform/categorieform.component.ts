@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { CategorielistComponent } from '../categorielist/categorielist.component';
-import { CategorieService } from '../../categorie.service';
+import { CategorieService } from '../../service/categorie.service';
 import { Categorie } from '../../models/categorie';
 import 'rxjs';
 

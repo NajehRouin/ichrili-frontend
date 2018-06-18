@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
-import { UserService } from '../../user.service';
+import { UserService } from '../../service/user.service';
 import { InvitationService } from '../invitation.service';
 import { Response } from '@angular/http';
 
@@ -10,9 +10,12 @@ import { Response } from '@angular/http';
   styleUrls: ['./recieved-invitation.component.css']
 })
 export class RecievedInvitationComponent implements OnInit {
-  recievedInvitation: any;
+  recievedInvitation: any=[];
   users = [];
   senders = [];
+  private _users = [];
+  frends : any;
+  private invitation = { senderId: '', recieverId: '' };
   currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
   constructor(
@@ -29,9 +32,19 @@ export class RecievedInvitationComponent implements OnInit {
 
   }
 
-  accept(event){
+  accept(sender, reciever){
+    this.invitationService.acceptInvitation({sender:sender,reciever:reciever})
+    .subscribe(friend=>console.log(friend));
+    this._users = this._users.filter(user => user._id !== reciever._id);
+     
+     
+    };
 
-  }
+  
+
+
+
+
   reject(){
     
   }

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { MesListeService } from '../../meslistes.service';
+import { MesListeService } from '../../service/meslistes.service';
 import { Melistes } from '../../models/mesliste';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { isDate } from 'util';

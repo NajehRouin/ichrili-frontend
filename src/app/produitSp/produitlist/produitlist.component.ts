@@ -5,7 +5,7 @@ import { Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Productspe } from '../../models/productspe';
-import { ProductSpeService } from '../../productspe.service';
+import { ProductSpeService } from '../../service/productspe.service';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
@@ -29,6 +29,16 @@ export class ProduitlistComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._productspService.getAllProductListe().subscribe(data => {
+      this.malist = data;
+      this.malist.map((produitsp) => {
+        console.log('produitspecial ',produitsp);
+       
+      
+      })
+      console.log(data);
+    });
+    this.total = this.malist.length;
  
     
   }

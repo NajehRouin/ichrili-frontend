@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { ListeComponent } from '../liste/liste.component';
-import { MesListeService } from '../../meslistes.service';
+import { MesListeService } from '../../service/meslistes.service';
 import { Melistes } from '../../models/mesliste';
 import 'rxjs';
 

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output } from '@angular/core';
 import { AchatlisteComponent } from '../Achatliste/Achat.component';
-import { ListeAchatService } from '../../../listeAchat.service' ;
+import { ListeAchatService } from '../../../service/listeAchat.service' ;
 import { listaAchat } from '../../../models/listeAchat';
-import {ProductService} from '../../../product.service';
+import {ProductService} from '../../../service/product.service';
 import { Product } from '../../../models/product';
 
-import{Market,IPosition} from '../../../models/market';
-import {CategorieService}from'../../../categorie.service';
+import{Market,} from '../../../models/market';
+import {CategorieService}from'../../../service/categorie.service';
 import{Categorie} from'../../../models/categorie';
-import {MarketService} from '../../../market.service';
+import {MarketService} from '../../../service/market.service';
 import 'rxjs';
 
 
@@ -25,9 +25,9 @@ export class FormaAchatComponent implements OnInit {
  
 products :any[];
 markets:any[];
-public pos:IPosition=new IPosition(0,0);
+
 public categorie:Categorie=new Categorie('','','');
-market:Market=new Market('','','','','',this.pos);
+market:Market=new Market('','','','',0);
 product :Product =new Product('','',0,'',this.categorie,this.market,'');
   @Input() private currentListeAchat: any;
 

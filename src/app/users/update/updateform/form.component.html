@@ -5,27 +5,27 @@
       <div class="form-group">
         <label for="">User <router-outlet name="name"></router-outlet>
         </label>
-        <input type="text" class="form-control" id="user_name" name="user_name" [(ngModel)]="currentUser.user_name" placeholder="user_name"
+        <input type="text" class="form-control" id="user_name" name="user_name" [(ngModel)]="_user.user_name" placeholder="user_name"
           (input)="onChangeUser()" required>
   
           
         <label for="">password:</label>
-        <input type="text" class="form-control" id="password" name="password" [(ngModel)]="currentUser.password" placeholder="password" required>
+        <input type="text" class="form-control" id="password" name="password" [(ngModel)]="_user.password" placeholder="password" required>
 
         <label for="">Gender</label>
-        <input type="text" class="form-control" id="gender" placeholder="your gender" name="gender" [(ngModel)]="currentUser.gender">
+        <input type="text" class="form-control" id="gender" placeholder="your gender" name="gender" [(ngModel)]="_user.gender">
   
         <label for="">Region</label>
-        <input type="text" class="form-control" id="region" placeholder="Type your Region" name="region" [(ngModel)]="currentUser.region">
+        <input type="text" class="form-control" id="region" placeholder="Type your Region" name="region" [(ngModel)]="_user.region">
      
         <label for="">Email</label>
-        <input type="text" class="form-control" id ="email" placeholder=" your mail" name="email" [(ngModel)]="currentUser.email">
+        <input type="text" class="form-control" id ="email" placeholder=" your mail" name="email" [(ngModel)]="_user.email">
        <label for ="">mobile</label>
-       <input type="number" class="form-control" id="numtel" name="numtel" [(ngModel)]="currentUser.numtel">
+       <input type="number" class="form-control" id="numtel" name="numtel" [(ngModel)]="_user.numtel">
     
       </div>
   
-      <button type="submit" class="btn btn-primary" (click)="Edit(context,currentUser)">{{Btn_SaveAdd_label}}</button>
+      <button type="submit" class="btn btn-primary" (click)="Edit(context,_user)">{{Btn_SaveAdd_label}}</button>
   
     </form>
   </div>

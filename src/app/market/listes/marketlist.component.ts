@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MarketService } from '../../market.service';
+import { MarketService } from '../../service/market.service';
 import { Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchMarketPipe } from '../../search-market.pipe';
-import { Market,IPosition} from '../../models/market';
+import { Market} from '../../models/market';
 import { CurrencyPipe } from '@angular/common';
 
-const image_url: String = 'http://localhost:3000/upload/';
+
 
 @Component({
   selector: 'app-marketlist',
@@ -16,8 +16,8 @@ const image_url: String = 'http://localhost:3000/upload/';
 })
 export class MarketListeComponent implements OnInit {
   malist: any = new Array();
-pos:IPosition=new IPosition(0,0);
-  market:Market = new Market('','','','','default_product.png',this.pos);
+
+  market:any=[];
 
   private showform: Boolean = false;
   loading = false;
@@ -35,12 +35,10 @@ pos:IPosition=new IPosition(0,0);
     this._marketService.getAllMarkets().subscribe(data => {
       this.malist = data;
       this.malist.map((market) => {
-       
-        if (market.photo) {
-          market.photo = image_url + market.photo;
-        }
+       console.log(data);
+      
       })
-      console.log(data);
+     
     });
     this.total = this.malist.length;
 

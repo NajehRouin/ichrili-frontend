@@ -6,8 +6,8 @@ import { AgmMap } from '@agm/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductlistComponent } from './productlist/productlist.component';
-import { ProductService } from './product.service';
-import{MarketService} from './market.service'
+import { ProductService } from './service/product.service';
+import{MarketService} from './service/market.service'
 import{MarketListeComponent} from './market/listes/marketlist.component' ;
 import{MarketformComponent}from './market/form/marketform.component';
 import {PositionComponent} from './market/posiotion/position.component';
@@ -24,7 +24,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PromotionComponent } from './promotion/promotion.component';
 import { HomeComponent } from './home/home.component';
-import { UserService } from './user.service';
+import { UserService } from './service/user.service';
 
 import { AuthService } from './users/auth.service';
 import { LoginFormComponent } from './users/login-form/login-form.component';
@@ -35,20 +35,23 @@ import { SendingInvitationComponent} from './users/sending-invitation/sending-in
 import { UsersModule } from './users/users.module';
 import{CategorielistComponent} from './categorie/categorielist/categorielist.component';
 import{CategorieformComponent} from'./categorie/categorieform/categorieform.component';
-import{CategorieService} from'./categorie.service'
+import{CategorieService} from'./service/categorie.service'
 import{ProduitlistComponent} from './produitSp/produitlist/produitlist.component';
-import {ProductSpeService} from './productspe.service';
+import {ProductSpeService} from './service/productspe.service';
 import{ProduitformComponent} from './produitSp/produitform/produitform.component';
 import {ListeComponent} from './Listes/liste/liste.component';
 import {MeslisteComponent} from './Listes/formliste/meslistes.component';
-import { MesListeService } from './meslistes.service';
+import { MesListeService } from './service/meslistes.service';
 import {AlertComponent} from './alert/alert.component';
-import {AlertService } from './alert.service';
+import {AlertService } from './service/alert.service';
 import {UpdateFormComponent} from './users/update/updateform/form.component';
 import  {UpdateComponent} from './users/update/updateliste/updateliste.component';
 import {AchatlisteComponent} from './Listes/listeAchat/Achatliste/Achat.component';
 import {FormaAchatComponent} from './Listes/listeAchat/formaAchat/formaAchat.component';
-import {ListeAchatService} from './listeAchat.service';
+import {ListeAchatService} from './service/listeAchat.service';
+import { MurlistComponent } from './Listes/murlist/murlist.component';
+import { FormuListeComponent } from './Listes/murlist/formu-liste/formu-liste.component';
+import { ModalModule } from 'ng2-bootstrap/modal';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthService] },
@@ -63,9 +66,8 @@ const routes: Routes = [
   { path: 'users', component: UserListComponent, canActivate: [AuthService] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthService] },
 
-  {path: 'Liste', component: ListeComponent, canActivate: [AuthService]},
- 
-  {path : 'listAchat' , component:AchatlisteComponent,canActivate:[AuthService]},
+  
+  {path : 'listAchat' , component:MurlistComponent,canActivate:[AuthService]},
   {path:'setting',component :UpdateComponent,canActivate:[AuthService] },
   { path: 'signup', component: SignupFormComponent },
 
@@ -100,7 +102,9 @@ const routes: Routes = [
     UpdateComponent,
     UpdateFormComponent,
     FormaAchatComponent,
-    AchatlisteComponent
+    AchatlisteComponent,
+    MurlistComponent,
+    FormuListeComponent
  
   ],
   imports: [
@@ -110,7 +114,8 @@ const routes: Routes = [
     NgUploaderModule,
     NgxPaginationModule,
     UsersModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ModalModule.forRoot()
   ],
   providers: [ProductService, UserService,MarketService,CategorieService
     ,ProductSpeService,MesListeService,AlertService ,ListeAchatService],
