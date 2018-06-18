@@ -14,20 +14,35 @@ export class ListeAchatService {
   }
 
   public getAllListeAchat() {
-    return this.http.get('http://localhost:3000/listeAchats', {})
+    return this.http.get('http://localhost:3000/listeAchats/', {})
       .map((response: Response) => response.json());
   }
 
-  public updateListeAchat(url: string, param: any): Observable<any> {
-    return this.http.put(url, param, this.options);
+  public getAllListeAchatByOwner(id) {
+    return this.http.get('http://localhost:3000/listeAchats/owner/'+id, {})
+      .map((response: Response) =>{ 
+        console.log("response:",response.json());
+        return response.json();
+        
+      }
+      );
+  }
+
+  public getAllListeAchatSherdByFriend(id) {
+    return this.http.get('http://localhost:3000/listeAchats/friend/'+id, {})
+      .map((response: Response) => response.json());
+  }
+
+  public updateListeAchat(id: any,list): Observable<any> {
+    return this.http.put('http://localhost:3000/listeAchats/'+id, {list},this.options);
   }
 
   public deleteListeAchat(_id) {
     return this.http.delete('http://localhost:3000/listeAchats/' + _id, this.options);
   }
 
-  public addListeAchat(listeA) {
-    return this.http.post('http://localhost:3000/listeAchats', listeA, this.options);
+  public addListeAchat(liste) {
+    return this.http.post('http://localhost:3000/listeAchats', liste, this.options);
   }
 }
 

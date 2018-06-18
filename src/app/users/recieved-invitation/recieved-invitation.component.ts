@@ -10,11 +10,11 @@ import { Response } from '@angular/http';
   styleUrls: ['./recieved-invitation.component.css']
 })
 export class RecievedInvitationComponent implements OnInit {
-  recievedInvitation: any=[];
+  recievedInvitation: any = [];
   users = [];
   senders = [];
   private _users = [];
-  frends : any;
+  friends: any;
   private invitation = { senderId: '', recieverId: '' };
   currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -28,25 +28,28 @@ export class RecievedInvitationComponent implements OnInit {
       .subscribe(invitations => {
         this.recievedInvitation = invitations.json();
       });
-
+    this.userService.getFreinds(this.currentUser._id).subscribe(amis => {
+      this.friends = amis;
+      console.log("freinds:",this.friends);
+    })
 
   }
 
-  accept(sender, reciever){
-    this.invitationService.acceptInvitation({sender:sender,reciever:reciever})
-    .subscribe(friend=>console.log(friend));
+  accept(sender, reciever) {
+    this.invitationService.acceptInvitation({ sender: sender, reciever: reciever })
+      .subscribe(friend => console.log(friend));
     this._users = this._users.filter(user => user._id !== reciever._id);
-     
-     
-    };
 
-  
+
+  };
 
 
 
 
-  reject(){
-    
+
+
+  reject() {
+
   }
 
 

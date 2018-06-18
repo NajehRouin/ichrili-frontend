@@ -1,13 +1,13 @@
 <div class="panel panel-primary">
   <div class="panel panel-title panel-heading">Invitations Réçus
     <span class="recived badge">
-      {{recievedInvitation.length}} 
+      {{recievedInvitation.length}}
     </span>
   </div>
   <div class="panel-body">
     <ul class="list-group">
       <li class="list-group list-group-item-info" *ngFor="let invitation of recievedInvitation;let i=index">
-       
+
         <div>
           <span>
             <img class="avatar" [src]="getAvatarUrl(invitation.senderGender)" />
@@ -34,23 +34,21 @@
 
 
 <div class="panel panel-primary">
-  <div class="panel panel-title panel-heading">friends
+  <div class="panel panel-title panel-heading">my Friends
     <div class="recived text-danger"></div>
   </div>
   <div class="panel-body">
     <ul class="list-group">
-      <li class="list-group list-group-item-success">
-
+      <li class="list-group list-group-item-success" *ngFor="let friend of friends;let index=i">
         <div>
-        
+          <span>
+            <img class="avatar" [src]="getAvatarUrl(friend.gender)" />
+          </span>
+          <span class="senderInfo">{{friend.user_name | uppercase}} </span>
+          <span class="senderInfo">{{friend.region | uppercase}} </span>
         </div>
-
       </li>
     </ul>
-
-
-
   </div>
 
 </div>
-

@@ -9,6 +9,9 @@
         <button class="btn btn-info rond" (click)="ajouterProduit(i)">
           <span class="glyphicon glyphicon-pencil"></span>
         </button>
+        <button class="btn btn-info rond" >
+            <span class="glyphicon glyphicon-share"></span>
+          </button>
         <button class="btn btn-danger" (click)="delete(list.items.ord)">
           <span class="text text-inverse">Delete List</span>
         </button>
@@ -43,13 +46,14 @@
             <button class="btn btn-warning rond" (click)="delete(list.items.ord)">
               <span class="glyphicon glyphicon-minus"></span>
             </button>
+            
         </tr>
       </tbody>
     </table>
     <p class="text-capitalize text-center">
       <button class="btn" (click)="updateTotal(i)">Calculer Total</button> :{{Total[i] | currency:"TND"}}</p>
     <br>
-    <button class="btn btn-primary" (click)="saveList(i)">Save the List</button>
+    <button class="btn btn-primary" type="submit" (click)="saveList(i)">Save The List</button>
   </div>
 
 </div>
