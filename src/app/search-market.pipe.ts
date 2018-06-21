@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'searchMarketPipe'
 })
+
 export class SearchMarketPipe implements PipeTransform {
   transform(markets: any, input: string): any {
     if (input) {
