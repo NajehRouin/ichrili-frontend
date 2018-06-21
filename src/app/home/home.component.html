@@ -3,35 +3,33 @@
 <div class="col-md-2">
   <div class="row">
     <img class="avatar" [src]="_avatar_url " />
-   
-    <span class="text-primary">
-      Welcome:
-    </span>
-      {{_user.user_name}} :Admin
-    <br>
   </div>
+  <span class="text-primary">
+    Welcome:
+  </span>
+  <span> {{_user.user_name}} :{{name}}</span>
+  <br>
+
 
   <div class="row">
     <app-sending-invitation></app-sending-invitation>
   </div>
 </div>
 <!-- end user to invite-->
-
+<br>
 
 <div class="col-md-8">
   <app-murlist></app-murlist>
 </div>
 
 
-
-
-
-
 <div class="col-md-2">
 
-    <app-recieved-invitation></app-recieved-invitation>
-  <button class="btn btn-success" ><a href="http://localhost:4200/PrSpecial">Ask for product special</a></button>
- 
+  <app-recieved-invitation></app-recieved-invitation>
+  <button class="btn mce-btn-small">
+    <a href="http://localhost:4200/PrSpecial">Ask for product special</a>
+  </button>
+
 
 
 </div>

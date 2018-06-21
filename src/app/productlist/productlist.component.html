@@ -8,10 +8,11 @@
 </div>
 
 
+
 <div class="row">
   <div style="padding:7px !important">
     <div class="col-md-4">
-      <input class="form-control" type="text" [(ngModel)]="queryS" placeholder="Search produit par designation , market , Categorie">
+      <input class="form-control" type="text" [(ngModel)]="queryString" placeholder="Search produit par designation , market , Categorie">
     </div>
   </div>
 </div>
@@ -34,8 +35,8 @@
           
         </tr>
       </thead>
-      <tbody *ngFor="let produit of malist 
-      | SearchProductPipe : queryS
+      <tbody *ngFor=" let produit of malist  
+      | searchProductPipe : queryString
       | paginate: { id:'products', itemsPerPage: 7, currentPage: p , totalItems: this.total };
       let i=index">
         <tr>

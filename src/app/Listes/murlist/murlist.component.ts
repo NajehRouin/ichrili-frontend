@@ -3,6 +3,7 @@ import { ListeAchatService } from '../../service/listeAchat.service';
 import { ModalDirective } from 'ng2-bootstrap/modal';
 import { ProductService } from '../../service/product.service';
 import { UserService } from '../../service/user.service';
+import { User } from '../../models/user';
 
 
 @Component({
@@ -13,12 +14,17 @@ import { UserService } from '../../service/user.service';
 export class MurlistComponent implements OnInit {
   mList: any = [];
   Total: any = [];
+  
   catProduct: any = []; // list des produits parmis lequel on choisit un pour ajouter à la liste
   @ViewChild('lgModal') public lgModal: ModalDirective;
   @ViewChild('menuModal') public menuModal: ModalDirective;
+  @ViewChild('partageModal') public partageModal: ModalDirective;
   currentProduitChoisi = { designation: '', market: '', price: 0 };
   currenList: any = [];
   nomNouvelList: String = '';
+  private _users = [];
+  friends: any;
+
   theUser = JSON.parse(localStorage.getItem('currentUser'));
   currentUser = {
     "id": this.theUser._id,
@@ -26,28 +32,29 @@ export class MurlistComponent implements OnInit {
     "ville": this.theUser.region
   }
   isNewList: boolean;
-
+ 
 
   constructor(
     private murList: ListeAchatService,
     private productService: ProductService,
-    private friendService: UserService
+    private friendService: UserService,
+    private userService: UserService
   ) { }
 
 
   ngOnInit() {
-   /* this.murList.getAllListeAchat()
-      .subscribe(
-        data => {
-          console.log("owner list",data);
-          this.mList = data;
-          console.log("mList : ", this.mList)
-        }
-*/
+    /* this.murList.getAllListeAchat()
+       .subscribe(
+         data => {
+           console.log("owner list",data);
+           this.mList = data;
+           console.log("mList : ", this.mList)
+         }
+ */
     this.murList.getAllListeAchatByOwner(this.currentUser.id)
       .subscribe(
         data => {
-          console.log("owner list",data);
+          console.log("owner list", data);
           this.mList = data;
           console.log("mList : ", this.mList)
         }
@@ -59,7 +66,12 @@ export class MurlistComponent implements OnInit {
 
       })
     this.Total = new Array(this.mList.length);
-    
+
+
+    this.userService.getFreinds(this.currentUser.id).subscribe(amis => {
+      this.friends = amis;
+      console.log("freinds:", this.friends);
+    })
 
   }
 
@@ -92,6 +104,14 @@ export class MurlistComponent implements OnInit {
     this.lgModal.show();
   }
 
+
+  partageListe(index) {
+
+    this.partageModal.show();
+
+  }
+
+
   updateProduitChoisi(produit) {
     this.currentProduitChoisi = produit;
     console.log("currentProductChoisi ", this.currentProduitChoisi);
@@ -106,6 +126,7 @@ export class MurlistComponent implements OnInit {
         "market": currentProduitChoisi.market,
         "price": currentProduitChoisi.price,
         "qte": 1
+
       }
     }
     this.currenList.items.push(item);
@@ -129,21 +150,48 @@ export class MurlistComponent implements OnInit {
     this.mList.push(newlist);
     this.currenList = newlist;
     this.menuModal.hide();
-   
+
   }
 
 
   saveList(listIndex) {
     // console.log(this.mList);
     if (this.isNewList) {
-     this.murList.addListeAchat(this.currenList).
-     subscribe(result=>{
-       console.log('result:',result);
-     })
+      this.murList.addListeAchat(this.currenList).
+        subscribe(result => {
+          console.log('result:', result);
+        })
     } else {
       this.murList.updateListeAchat(this.mList[listIndex]._id, this.mList[listIndex])
         .subscribe(data => console.log(data))
     }
-    this.isNewList=false;
+    this.isNewList = false;
   }
+
+
+
+
+
+public getAvatarUrl(gender) {
+  switch (gender.toUpperCase()) {
+    case 'HOMME':
+      return 'assets/homme.jpg';
+    case 'FEMME':
+      return 'assets/femme.jpg'
+    default:
+      return 'assets/homme.jpg';
+  }
+}
+
+getColor(i) {
+  let r = i % 2;
+  switch (r) {
+    case 0:
+      return 'info';
+    case 1:
+      return '';
+    default:
+      return 'info';
+  }
+}
 }

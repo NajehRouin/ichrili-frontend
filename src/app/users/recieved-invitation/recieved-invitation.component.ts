@@ -14,7 +14,7 @@ export class RecievedInvitationComponent implements OnInit {
   users = [];
   senders = [];
   private _users = [];
-  friends: any;
+  friends: any=[];
   private invitation = { senderId: '', recieverId: '' };
   currentUser = JSON.parse(localStorage.getItem('currentUser'));
 

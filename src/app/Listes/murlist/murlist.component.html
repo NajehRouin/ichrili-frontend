@@ -1,3 +1,4 @@
+
 <button class="btn btn-success" (click)="addListToMur()"> Ajouter liste </button>
 
 
@@ -9,12 +10,16 @@
         <button class="btn btn-info rond" (click)="ajouterProduit(i)">
           <span class="glyphicon glyphicon-pencil"></span>
         </button>
-        <button class="btn btn-info rond" >
-            <span class="glyphicon glyphicon-share"></span>
-          </button>
+        <button class="btn btn-info rond">
+          <span class="glyphicon glyphicon-share" (click)="partageListe(i)"></span>
+        </button>
         <button class="btn btn-danger" (click)="delete(list.items.ord)">
           <span class="text text-inverse">Delete List</span>
         </button>
+       
+
+        <span class="text text-success">owner:</span>
+        <span>{{theUser.user_name}}</span>
       </h4>
       <small style="color:gray"> created @ </small>
       <span class="text-info">{{list.date_creation}} </span>
@@ -27,8 +32,9 @@
           <th>Market</th>
           <th>Prix</th>
           <th>Qte</th>
+
           <th>Total Ligne</th>
-          <th>Action</th>
+          
         </tr>
       </thead>
       <tbody *ngFor="let item of list.items">
@@ -40,13 +46,12 @@
           <td>
             <input class="form-control" name="qte" type="number" value="1" [(ngModel)]="item.qte">
           </td>
+
           <td>{{item.qte * item.produit.price | currency:'TND':false}}</td>
           <td>
 
-            <button class="btn btn-warning rond" (click)="delete(list.items.ord)">
-              <span class="glyphicon glyphicon-minus"></span>
-            </button>
             
+
         </tr>
       </tbody>
     </table>
@@ -57,6 +62,7 @@
   </div>
 
 </div>
+
 
 
 
@@ -123,6 +129,44 @@
         <button class="btn btn-primary" (click)="ajouterNouvelleListe(nomNouvelList)">
           Ajouter Liste
         </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!--large modal partage liste -->
+<div bsModal #partageModal="bs-modal" class="modal fade" tabindex="1" role="dialog" aria-labelledby="ListeModal" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="panel panel-primary">
+          <div class="panel panel-title panel-heading">shar to
+            <div class="recived text-danger"></div>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group list-group-item-success" *ngFor="let friend of friends;let index=i">
+                <div>
+                  <span>
+                    <img class="avatar" [src]="getAvatarUrl(friend.gender)" />
+                  </span>
+                  <span class="senderInfo">{{friend.user_name | uppercase}} </span>
+                  <span class="senderInfo">{{friend.region | uppercase}} </span>
+                </div>
+                <button class="btn btn-primary">
+                    partage
+                  </button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-body">
+
+        
       </div>
 
     </div>

@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   listProduit :any=new Array();
   p: number = 1;
   categorie:any=[];
+ name: String="admin";
  
   market:any=[];
   produit:any=[];
@@ -45,13 +46,13 @@ export class HomeComponent implements OnInit {
     this.productservice.getAllProducts().subscribe(data => {
       this.listProduit = data;
       this.listProduit.map((produit) => {
-        //console.log('produit',produit);
+       
         if (produit.photo_url) {
           produit.photo_url = image_url + produit.photo_url;
         }
       });
 
-     // console.log(data); 
+
     });
     this.total = this.listProduit.length;
 
@@ -59,18 +60,20 @@ export class HomeComponent implements OnInit {
     this.categorieservice.getAllCategories().subscribe(data => {
       this.malist = data;
       this.malist.map((categorie) => {
-        //console.log('categorie',categorie);
+       
       });
 
-     // console.log(data); 
+    
     });
     this.total = this.malist.length;
   }
   getAvatarPath(gender: string): string {
     switch (gender.toUpperCase()) {
       case 'HOMME':
+      this.name="Admin";
         return 'assets/homme.jpg';
       case 'FEMME':
+      this.name="Admine";
         return 'assets/femme.jpg';
       default: return 'assets/homme.jpg';
     }

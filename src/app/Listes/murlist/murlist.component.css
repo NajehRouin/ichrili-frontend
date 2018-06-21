@@ -24,10 +24,26 @@
 
 }
 
-.theList{
 
-}
 
 .rond{
     border-radius: 50%;
 }
+
+.avatar{
+    width:20%;
+    padding: 3px;
+    border-radius: 30%;
+}
+
+.avatar_container{  
+    padding:-5px;
+    display: block;
+    float: left;
+}
+
+li {
+    list-style: none;
+}
+
+

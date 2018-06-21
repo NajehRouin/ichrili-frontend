@@ -25,7 +25,8 @@ export class ProductlistComponent implements OnInit {
   categories: any = [];
   markets: any = [];
   produit: Product = new Product('', '', 0,'' ,this.categorie, this.market, 'default_product.png');
-  private showform: Boolean = false;
+ 
+ private showform: Boolean = false;
   loading = false;
   p: number = 1;
   total: number = 0;
