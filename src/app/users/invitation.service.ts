@@ -18,8 +18,8 @@ export class InvitationService {
     return this.http.post(urlApi, invitation);
   }
 
-  public acceptInvitation(senderId) {
-    return this.http.get(urlApi + '/acepte/friend/' + senderId);
+  public acceptInvitation(theInvitation) {
+    return this.http.put(urlApi + '/accept',{invitation:theInvitation});
 
   }
 
