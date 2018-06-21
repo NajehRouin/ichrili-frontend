@@ -35,11 +35,11 @@ export class RecievedInvitationComponent implements OnInit {
 
   }
 
-  accept(sender, reciever) {
-    this.invitationService.acceptInvitation({ sender: sender, reciever: reciever })
+  accept(invitation) {
+    this.invitationService.acceptInvitation(invitation)
       .subscribe(friend => console.log(friend));
-    this._users = this._users.filter(user => user._id !== reciever._id);
-
+      this.recievedInvitation = this.recievedInvitation.filter(inv => inv.senderId !== invitation.senderId);
+      console.log("frindsssss",this.recievedInvitation);
 
   };
 
