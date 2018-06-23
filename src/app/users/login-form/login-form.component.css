@@ -1,16 +1,19 @@
-#btn-login{
-    width:15em !important;
+#btn-login {
+    width: 15em !important;
 }
 
-.mylist{
-    padding-top:30px;
-    margin-top:30px;
-   
-    
+.mylist  {
+    padding-top: 30px;
+    margin-top: 30px;
+  
 }
-#img img{
-    position: absolute;
+
+#img {
+   /* position: absolute;*/
     margin: auto;
-   width: 600px;
-   height: 280px;
+    background: url(./../../../assets/logo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+   /* opacity: .5;*/
 }

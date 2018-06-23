@@ -21,7 +21,7 @@ export class ProductformComponent implements OnInit {
   private errorMessage: String = '';
   private Btn_SaveAdd_label = 'Add Product';
   private btn_ubdate = "update product";
-  public pos: any = [];
+  
   public categorie: any = [];
   market: any = [];
   categories: any = [];
