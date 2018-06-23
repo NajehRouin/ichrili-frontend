@@ -1,0 +1,49 @@
+<button class="btn btn-info"> Listes Réçus {{recievedList.length}} </button>
+<div class="panel panel-default">
+
+  <div class="panel-heading" *ngFor="let list of recievedList;let i=index">
+    <div class="panel panel-title success">
+      <h5>{{list.label}}
+        <span class="text text-success">Sender:</span>
+        <span>{{list.owner.name}}</span>
+      </h5>
+      <!-- <small style="color:gray"> created @ </small>
+      <span class="text-info">{{list.date_creation}} </span>
+      -->
+    </div>
+    <table class="table table-striped table-inverse table-responsive">
+      <thead class="thead-inverse">
+        <tr>
+          <th>
+            <small>Produit</small>
+          </th>
+          <th>
+            <small>Qte</small>
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of list.items">
+        <tr>
+          <td>
+            <img class="phtoProduit" [src]="getPhotoUrl(item.produit.photo_url)" alt="!Dispo"> {{item.produit.designation}}
+            <tr>
+              <i>
+                <small style="color:gray !important;">Market : {{item.produit.market}}</small>
+              </i>
+
+            </tr>
+          </td>
+          <td>
+            <tr> <b style="color:red !important;">{{item.qte}}</b></tr>
+          </td>
+
+        </tr>
+        <tr>
+            <small style="color:gray">&Sigma; :{{item.qte * item.produit.price | currency:"TND" : false}}</small>
+          </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

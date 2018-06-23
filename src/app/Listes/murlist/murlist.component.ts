@@ -6,6 +6,8 @@ import { UserService } from '../../service/user.service';
 import { User } from '../../models/user';
 
 
+const photo_url: String = 'http://localhost:3000/upload/';
+
 @Component({
   selector: 'app-murlist',
   templateUrl: './murlist.component.html',
@@ -19,11 +21,12 @@ export class MurlistComponent implements OnInit {
   @ViewChild('lgModal') public lgModal: ModalDirective;
   @ViewChild('menuModal') public menuModal: ModalDirective;
   @ViewChild('partageModal') public partageModal: ModalDirective;
-  currentProduitChoisi = { designation: '', market: '', price: 0 };
+  currentProduitChoisi = { designation: '', market: '', price: 0,photo_url:''};
   currenList: any = [];
   nomNouvelList: String = '';
   private _users = [];
   friends: any;
+  sharedWhith={friend_name:''};
 
   theUser = JSON.parse(localStorage.getItem('currentUser'));
   currentUser = {
@@ -43,15 +46,7 @@ export class MurlistComponent implements OnInit {
 
 
   ngOnInit() {
-    /* this.murList.getAllListeAchat()
-       .subscribe(
-         data => {
-           console.log("owner list",data);
-           this.mList = data;
-           console.log("mList : ", this.mList)
-         }
- */
-    this.murList.getAllListeAchatByOwner(this.currentUser.id)
+       this.murList.getAllListeAchatByOwner(this.currentUser.id)
       .subscribe(
         data => {
           console.log("owner list", data);
@@ -63,7 +58,6 @@ export class MurlistComponent implements OnInit {
     this.productService.getAllProducts()
       .subscribe(data => {
         this.catProduct = data;
-
       })
     this.Total = new Array(this.mList.length);
 
@@ -100,13 +94,13 @@ export class MurlistComponent implements OnInit {
 
   ajouterProduit(index) {
     this.currenList = this.mList[index];
-    console.log("currenList", this.currenList);
+    //console.log("currenList", this.currenList);
     this.lgModal.show();
   }
 
-
+//Afiicher Dialog Modale de Partage de Liste
   partageListe(index) {
-
+    this.currenList = this.mList[index];
     this.partageModal.show();
 
   }
@@ -125,6 +119,7 @@ export class MurlistComponent implements OnInit {
         "designation": currentProduitChoisi.designation,
         "market": currentProduitChoisi.market,
         "price": currentProduitChoisi.price,
+        "photo_url":currentProduitChoisi.photo_url,
         "qte": 1
 
       }
@@ -169,7 +164,17 @@ export class MurlistComponent implements OnInit {
   }
 
 
+  //submit share order to backend
+  public submitShare(friend){
+    this.murList.shareListeWithFriend(this.currenList._id,friend).subscribe(result=>{
+      console.log('Shared List:',result)
+    })
+    this.partageModal.hide();
+  }
 
+public getPhotoUrl(photoId){
+  return photo_url+photoId;
+}
 
 
 public getAvatarUrl(gender) {
