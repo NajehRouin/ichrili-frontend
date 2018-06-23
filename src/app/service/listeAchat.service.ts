@@ -44,5 +44,9 @@ export class ListeAchatService {
   public addListeAchat(liste) {
     return this.http.post('http://localhost:3000/listeAchats', liste, this.options);
   }
+
+  public shareListeWithFriend(listeId,friend){
+    return this.http.put('http://localhost:3000/listeAchats/share/'+listeId,{friend},this.options);
+  }
 }
 

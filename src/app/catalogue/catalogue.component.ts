@@ -36,7 +36,7 @@ export class CatalogueComponent implements OnInit {
     });
   }
   animateProduit() {
-    TweenMax.from('img', 1, { alfa: 0, x:-50,y:+50,height: 0, width: 0, ease: Power4.easeOut });
-   TweenMax.to('img', 1, { alfa: 1,x:+50,y:-50, height: 100, width: 100, ease: Power4.easeOut })
+    //TweenMax.from('img', 1, { alfa: 0, x:-50,y:+50,height: 0, width: 0, ease: Power4.easeOut });
+   //TweenMax.to('img', 1, { alfa: 1,x:+50,y:-50, height: 100, width: 100, ease: Power4.easeOut })
   }
 }

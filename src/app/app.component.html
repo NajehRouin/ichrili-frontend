@@ -1,10 +1,8 @@
 <div class="fixed-top">
   <h1>
     <img alt="Brand" src="../assets/logo.jpg" style="width:5% !important;" />
-    <span class="small">{{title_1}}</span>
-    <!--<span class="small">{{title_2}}</span>-->
-
-
+    <span class="small"><b>{{title_1}}</b></span>
+    <span class="small">{{title_2}}</span>
   </h1>
 </div>
 <hr>
@@ -15,16 +13,72 @@
   <router-outlet></router-outlet>
   <br>
 </div>
-<div class="footer navbar-bottom">
-  <div class="panel-footer">
-    <b>
-      <i>Alfa Computers</i>
-    </b>
-    <br>
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4 mt-4" style="background-color: #37474F">
 
-    <b>
-      <i>Grocery List</i>
-    </b>
-
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+  
+          <!-- Content -->
+          <h5 class="text-uppercase footerContent"><b >Grocey List</b></h5>
+          <p class="footerContent">Projet PFE ISET 2018 consiste a partager des liste d'achat entre famille et amis</p>
+          <p class="footerContent">Projet PFE ISET 2018 consiste a partager des liste d'achat entre famille et amis</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+       <!-- <hr class="clearfix w-100 d-md-none pb-3"> -->
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase footerContent ">Liens</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+                <a [routerLink]="['/home']">Home</a>
+            </li>
+            <li>
+                <a [routerLink]="['/listAchat']" >List Achat</a>
+            </li>
+            <li>
+                <a [routerLink]="['/promotion']">Promotions</a>
+            </li>
+            <li>
+                <a [routerLink]="['/productlist']">Produits  </a>
+            </li>
+            <li>
+                <a [routerLink]="['/profile']">Profile   </a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+       
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  <hr>
+  <div class="col-md-2 mb-md-0 mb-3">
+      <img src="../assets/log_alfa_site.png"/>
   </div>
-</div>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 footerContent" style="color:gray !important">© 2018 Copyright:
+      <p class="footerContent">Bowred By : Rouin Najeh and Fatma 
+        Jerbi for PFE Iset 2018
+      </p>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->

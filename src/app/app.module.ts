@@ -52,6 +52,7 @@ import {ListeAchatService} from './service/listeAchat.service';
 import { MurlistComponent } from './Listes/murlist/murlist.component';
 import { FormuListeComponent } from './Listes/murlist/formu-liste/formu-liste.component';
 import { ModalModule } from 'ng2-bootstrap/modal';
+import { RecievedListComponent } from './Listes/recieved-list/recieved-list.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthService] },
@@ -104,7 +105,8 @@ const routes: Routes = [
     FormaAchatComponent,
     AchatlisteComponent,
     MurlistComponent,
-    FormuListeComponent
+    FormuListeComponent,
+    RecievedListComponent
  
   ],
   imports: [
