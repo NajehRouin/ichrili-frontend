@@ -1,4 +1,3 @@
-
 <button class="btn btn-success" (click)="addListToMur()"> Ajouter liste </button>
 
 
@@ -10,13 +9,16 @@
         <button class="btn btn-info rond" (click)="ajouterProduit(i)">
           <span class="glyphicon glyphicon-pencil"></span>
         </button>
-        <button class="btn btn-info rond">
-          <span class="glyphicon glyphicon-share" (click)="partageListe(i)"></span>
+        <button class="btn btn-info rond"
+        [disabled]="list.yetShared"
+        (click)="partageListe(i)"
+        >
+          <span class="glyphicon glyphicon-share" > </span>
         </button>
-        <button class="btn btn-danger" (click)="delete(list.items.ord)">
-          <span class="text text-inverse">Delete List</span>
+        <button class="btn btn-danger rond" (click)="delete(list.items.ord)">
+          <span class="glyphicon glyphicon-remove"></span>
         </button>
-       
+
 
         <span class="text text-success">owner:</span>
         <span>{{theUser.user_name}}</span>
@@ -29,19 +31,27 @@
         <tr>
           <th>#</th>
           <th>Produit</th>
-          <th>Market</th>
+          <th>Photo</th>
           <th>Prix</th>
           <th>Qte</th>
 
-          <th>Total Ligne</th>
-          
+          <th>Total</th>
+
         </tr>
       </thead>
       <tbody *ngFor="let item of list.items">
         <tr>
           <td scope="row">{{item.ord}}</td>
-          <td>{{item.produit.designation}}</td>
-          <td>{{item.produit.market}}</td>
+          <td>{{item.produit.designation}}
+            <tr>
+              <i>
+                <small style="color:gray !important;">Market : {{item.produit.market}}</small>
+              </i>
+            </tr>
+          </td>
+          <td>
+            <img class="phtoProduit" [src]="getPhotoUrl(item.produit.photo_url)" alt="!Dispo">
+          </td>
           <td>{{item.produit.price | currency:'TND':false}}</td>
           <td>
             <input class="form-control" name="qte" type="number" value="1" [(ngModel)]="item.qte">
@@ -50,7 +60,7 @@
           <td>{{item.qte * item.produit.price | currency:'TND':false}}</td>
           <td>
 
-            
+
 
         </tr>
       </tbody>
@@ -142,7 +152,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="panel panel-primary">
-          <div class="panel panel-title panel-heading">shar to
+          <div class="panel panel-title panel-heading">Share with
             <div class="recived text-danger"></div>
           </div>
           <div class="panel-body">
@@ -152,12 +162,13 @@
                   <span>
                     <img class="avatar" [src]="getAvatarUrl(friend.gender)" />
                   </span>
-                  <span class="senderInfo">{{friend.user_name | uppercase}} </span>
-                  <span class="senderInfo">{{friend.region | uppercase}} </span>
-                </div>
-                <button class="btn btn-primary">
-                    partage
+                  <span class="text">{{friend.friend_name | uppercase}} </span>
+                  <span class="text">{{friend.region | uppercase}} </span>
+                  <button class="btn btn-primary" (click)="submitShare(friend)">
+                    share
                   </button>
+                </div>
+
               </li>
             </ul>
           </div>
@@ -166,7 +177,7 @@
       </div>
       <div class="modal-body">
 
-        
+
       </div>
 
     </div>
