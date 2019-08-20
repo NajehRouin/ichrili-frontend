@@ -27,7 +27,7 @@
     "@ngrx/router-store": "^4.0.2",
     "@ngrx/store": "^4.0.2",
     "@ngrx/store-devtools": "^4.0.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "gsap": "^1.20.2",
