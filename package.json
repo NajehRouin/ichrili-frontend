@@ -32,7 +32,7 @@
     "font-awesome": "^4.7.0",
     "gsap": "^1.20.2",
     "immutable": "^3.8.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.4",
     "ng2-bootstrap": "^1.6.3",
     "ngrx-store-freeze": "^0.1.9",
